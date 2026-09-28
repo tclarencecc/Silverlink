@@ -8,24 +8,25 @@ import { getStrings } from "@/lib/strings";
 export const Route = createFileRoute("/need/$category")({
   head: ({ params }) => {
     const service = getService(params.category);
+    const text = service?.text.en;
 
     return {
       meta: [
-        { title: service ? `${service.title} — coming soon` : "Coming soon" },
+        { title: text ? `${text.title} — coming soon` : "Coming soon" },
         {
           name: "description",
-          content: service
-            ? `${service.title}: ${service.blurb}. This section is being built.`
+          content: text
+            ? `${text.title}: ${text.blurb}. This section is being built.`
             : "This section is being built.",
         },
         {
           property: "og:title",
-          content: service ? `${service.title} — coming soon` : "Coming soon",
+          content: text ? `${text.title} — coming soon` : "Coming soon",
         },
         {
           property: "og:description",
-          content: service
-            ? `${service.title}: ${service.blurb}`
+          content: text
+            ? `${text.title}: ${text.blurb}`
             : "This section is being built.",
         },
         { property: "og:type", content: "website" },
