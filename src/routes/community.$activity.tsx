@@ -212,6 +212,7 @@ function SportsQuestionForm({
   async function handleSubmit(event?: FormEvent<HTMLFormElement>) {
     event?.preventDefault();
     const trimmedQuestion = question.trim();
+    console.log("CHATBOX SUBMIT", JSON.stringify(trimmedQuestion), language, isSubmitting);
     if (!trimmedQuestion || !language || isSubmitting) return;
 
     setIsSubmitting(true);
