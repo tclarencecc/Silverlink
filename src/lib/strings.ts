@@ -42,6 +42,13 @@ export type UiStrings = {
   financialSupportCount: string;
   financialSupportSource: string;
   benefit: string;
+  emergencyHotlinesHeading: string;
+  emergencyHotlinesCount: string;
+  emergencyWarning: string;
+  healthResourcesHeading: string;
+  healthResourcesCount: string;
+  access: string;
+  healthSafetySource: string;
 };
 
 export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
@@ -88,6 +95,13 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     financialSupportCount: "financial support schemes",
     financialSupportSource: "Source: Together, for Better",
     benefit: "What you may receive",
+    emergencyHotlinesHeading: "Emergency and support hotlines",
+    emergencyHotlinesCount: "hotlines you can call",
+    emergencyWarning: "For a life-threatening emergency or fire, call 995 now.",
+    healthResourcesHeading: "Health and care services",
+    healthResourcesCount: "Ageing Well topics to explore",
+    access: "How to get help",
+    healthSafetySource: "Sources: RC Caregivers and Ministry of Health",
   },
   zh: {
     languageLabel: "语言：",
@@ -132,6 +146,13 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     financialSupportCount: "项经济援助计划",
     financialSupportSource: "资料来源：Together, for Better",
     benefit: "您可能获得的援助",
+    emergencyHotlinesHeading: "紧急与援助热线",
+    emergencyHotlinesCount: "个可拨打的热线",
+    emergencyWarning: "如遇危及生命的紧急事故或火灾，请立即拨打995。",
+    healthResourcesHeading: "健康与照护服务",
+    healthResourcesCount: "个可了解的乐龄安康主题",
+    access: "如何获得援助",
+    healthSafetySource: "资料来源：RC Caregivers及新加坡卫生部",
   },
   ms: {
     languageLabel: "Bahasa:",
@@ -176,6 +197,13 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     financialSupportCount: "skim sokongan kewangan",
     financialSupportSource: "Sumber: Together, for Better",
     benefit: "Bantuan yang mungkin diterima",
+    emergencyHotlinesHeading: "Talian kecemasan dan sokongan",
+    emergencyHotlinesCount: "talian yang boleh anda hubungi",
+    emergencyWarning: "Untuk kecemasan yang mengancam nyawa atau kebakaran, telefon 995 sekarang.",
+    healthResourcesHeading: "Khidmat kesihatan dan penjagaan",
+    healthResourcesCount: "topik Ageing Well untuk diterokai",
+    access: "Cara mendapatkan bantuan",
+    healthSafetySource: "Sumber: RC Caregivers dan Kementerian Kesihatan",
   },
   ta: {
     languageLabel: "மொழி:",
@@ -220,6 +248,13 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     financialSupportCount: "நிதி உதவித் திட்டங்கள்",
     financialSupportSource: "ஆதாரம்: Together, for Better",
     benefit: "நீங்கள் பெறக்கூடிய உதவி",
+    emergencyHotlinesHeading: "அவசர மற்றும் ஆதரவு உதவி எண்கள்",
+    emergencyHotlinesCount: "அழைக்கக்கூடிய உதவி எண்கள்",
+    emergencyWarning: "உயிருக்கு ஆபத்தான அவசரநிலை அல்லது தீ விபத்திற்கு இப்போது 995-ஐ அழைக்கவும்.",
+    healthResourcesHeading: "உடல்நலம் மற்றும் பராமரிப்புச் சேவைகள்",
+    healthResourcesCount: "அறிந்துகொள்ள வேண்டிய Ageing Well தலைப்புகள்",
+    access: "உதவி பெறும் முறை",
+    healthSafetySource: "ஆதாரங்கள்: RC Caregivers மற்றும் சுகாதார அமைச்சு",
   },
 };
 
