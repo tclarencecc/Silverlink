@@ -1,13 +1,14 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowLeft, ExternalLink, MapPin } from "lucide-react";
+import { ArrowLeft, CalendarDays, ExternalLink, MapPin } from "lucide-react";
 
 import { getSportFacilities } from "@/lib/sportsg.functions";
 
 import { getActivity, getActivityText } from "@/lib/activities";
 import { HOBBIES, getHobbyName } from "@/lib/hobbies";
 import { useLanguage } from "@/lib/language";
+import { MUSIC_EVENTS } from "@/lib/music";
 import { getStrings } from "@/lib/strings";
 
 export const Route = createFileRoute("/community/$activity")({
@@ -81,6 +82,8 @@ function ActivityPlaceholder() {
             <SportsList language={language} />
           ) : activity.id === "hobbies" ? (
             <HobbiesList language={language} />
+          ) : activity.id === "music" ? (
+            <MusicList language={language} />
           ) : (
             <div className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-left shadow-soft">
               <p className="text-body text-foreground">{text.detail}</p>
@@ -198,6 +201,41 @@ function HobbiesList({ language }: { language: ReturnType<typeof useLanguage>["l
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.hobbiesSource}</p>
+    </section>
+  );
+}
+
+function MusicList({ language }: { language: ReturnType<typeof useLanguage>["language"] }) {
+  const strings = getStrings(language);
+
+  return (
+    <section className="mt-9 text-left">
+      <p className="text-caption text-muted-foreground">
+        <span className="font-bold text-foreground">{MUSIC_EVENTS.length}</span> {strings.musicCount}
+      </p>
+      <ul className="mt-4 flex flex-col gap-4">
+        {MUSIC_EVENTS.map((event) => (
+          <li key={event.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
+            <h2 className="font-display text-body-lg font-bold text-foreground">{event.title}</h2>
+            <p className="mt-2 flex items-center gap-2 text-body font-bold text-foreground">
+              <CalendarDays className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              {event.date}
+            </p>
+            <p className="mt-1 text-body text-muted-foreground">{event.venue}</p>
+            <p className="mt-2 text-body text-muted-foreground">{event.blurb}</p>
+            <a
+              href={event.url}
+              target="_blank"
+              rel="noreferrer"
+              className="press mt-4 inline-flex min-h-[3.75rem] w-full items-center justify-center gap-2 rounded-2xl border-2 border-border bg-background px-4 text-caption font-bold text-foreground hover:border-primary/60"
+            >
+              <ExternalLink className="h-5 w-5" aria-hidden="true" />
+              {strings.viewEvent}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-6 text-caption text-muted-foreground">{strings.musicSource}</p>
     </section>
   );
 }

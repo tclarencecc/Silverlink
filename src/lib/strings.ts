@@ -21,6 +21,9 @@ export type UiStrings = {
   hobbiesCount: string;
   hobbiesSource: string;
   viewCourses: string;
+  musicCount: string;
+  musicSource: string;
+  viewEvent: string;
 };
 
 export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
@@ -46,6 +49,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     hobbiesCount: "hobby courses from OnePA",
     hobbiesSource: "Source: People's Association, onepa.gov.sg",
     viewCourses: "View courses",
+    musicCount: "music events in Singapore",
+    musicSource: "Source: Arts Republic, artsrepublic.sg",
+    viewEvent: "View event",
   },
   zh: {
     languageLabel: "语言：",
@@ -69,6 +75,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     hobbiesCount: "个人民协会兴趣课程",
     hobbiesSource: "资料来源：人民协会，onepa.gov.sg",
     viewCourses: "查看课程",
+    musicCount: "场新加坡音乐活动",
+    musicSource: "资料来源：Arts Republic，artsrepublic.sg",
+    viewEvent: "查看活动",
   },
   ms: {
     languageLabel: "Bahasa:",
@@ -92,6 +101,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     hobbiesCount: "kursus hobi daripada OnePA",
     hobbiesSource: "Sumber: People's Association, onepa.gov.sg",
     viewCourses: "Lihat kursus",
+    musicCount: "acara muzik di Singapura",
+    musicSource: "Sumber: Arts Republic, artsrepublic.sg",
+    viewEvent: "Lihat acara",
   },
   ta: {
     languageLabel: "மொழி:",
@@ -115,6 +127,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     hobbiesCount: "OnePA பொழுதுபோக்கு வகுப்புகள்",
     hobbiesSource: "ஆதாரம்: People's Association, onepa.gov.sg",
     viewCourses: "வகுப்புகளைக் காண்க",
+    musicCount: "சிங்கப்பூரில் இசை நிகழ்வுகள்",
+    musicSource: "ஆதாரம்: Arts Republic, artsrepublic.sg",
+    viewEvent: "நிகழ்வைக் காண்க",
   },
 };
 
