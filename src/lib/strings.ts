@@ -23,6 +23,8 @@ export type UiStrings = {
   sportsQuestionHeading: string;
   sportsQuestionLabel: string;
   sportsQuestionPlaceholder: string;
+  musicQuestionPlaceholder: string;
+  hobbiesQuestionPlaceholder: string;
   sportsQuestionSubmit: string;
   sportsQuestionLoading: string;
   sportsAnswerHeading: string;
@@ -83,6 +85,8 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     sportsQuestionHeading: "Can I help with anything specific?",
     sportsQuestionLabel: "Your question",
     sportsQuestionPlaceholder: "For example, which centre is in Tampines?",
+    musicQuestionPlaceholder: "For example, which events are at the Esplanade?",
+    hobbiesQuestionPlaceholder: "For example, is there a pottery class?",
     sportsQuestionSubmit: "Ask",
     sportsQuestionLoading: "Finding an answer…",
     sportsAnswerHeading: "Answer",
@@ -141,6 +145,8 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     sportsQuestionHeading: "我可以帮您查找具体信息吗？",
     sportsQuestionLabel: "您的问题",
     sportsQuestionPlaceholder: "例如：淡滨尼有哪些体育中心？",
+    musicQuestionPlaceholder: "例如：滨海艺术中心有哪些活动？",
+    hobbiesQuestionPlaceholder: "例如：有陶艺课程吗？",
     sportsQuestionSubmit: "提问",
     sportsQuestionLoading: "正在查找答案…",
     sportsAnswerHeading: "答案",
@@ -199,6 +205,8 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     sportsQuestionHeading: "Boleh saya bantu dengan sesuatu yang khusus?",
     sportsQuestionLabel: "Soalan anda",
     sportsQuestionPlaceholder: "Contohnya, pusat mana yang terletak di Tampines?",
+    musicQuestionPlaceholder: "Contohnya, acara apa di Esplanade?",
+    hobbiesQuestionPlaceholder: "Contohnya, adakah kelas tembikar?",
     sportsQuestionSubmit: "Tanya",
     sportsQuestionLoading: "Mencari jawapan…",
     sportsAnswerHeading: "Jawapan",
@@ -257,6 +265,8 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     sportsQuestionHeading: "குறிப்பாக ஏதாவது உதவி வேண்டுமா?",
     sportsQuestionLabel: "உங்கள் கேள்வி",
     sportsQuestionPlaceholder: "எடுத்துக்காட்டாக, தெம்பனிஸில் எந்த மையம் உள்ளது?",
+    musicQuestionPlaceholder: "எடுத்துக்காட்டாக, எஸ்பிளனேடில் என்ன நிகழ்ச்சிகள் உள்ளன?",
+    hobbiesQuestionPlaceholder: "எடுத்துக்காட்டாக, மட்பாண்ட வகுப்பு உள்ளதா?",
     sportsQuestionSubmit: "கேளுங்கள்",
     sportsQuestionLoading: "பதிலைத் தேடுகிறோம்…",
     sportsAnswerHeading: "பதில்",
