@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ConnectionRouteImport } from './routes/connection'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as SignupRouteImport } from './routes/signup'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as CommunityIndexRouteImport } from './routes/community.index'
 import { Route as CommunityActivityRouteImport } from './routes/community.$activity'
@@ -40,6 +42,16 @@ const ConnectionRoute = ConnectionRouteImport.update({
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SupportRoute = SupportRouteImport.update({
@@ -88,6 +100,8 @@ export interface FileRoutesByFullPath {
   '/community': typeof CommunityRouteWithChildren
   '/connection': typeof ConnectionRouteWithChildren
   '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
   '/support': typeof SupportRouteWithChildren
   '/community/$activity': typeof CommunityActivityRoute
   '/connection/$option': typeof ConnectionOptionRoute
@@ -100,6 +114,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
   '/community/$activity': typeof CommunityActivityRoute
   '/connection/$option': typeof ConnectionOptionRoute
   '/need/$category': typeof NeedCategoryRoute
@@ -114,6 +130,8 @@ export interface FileRoutesById {
   '/community': typeof CommunityRouteWithChildren
   '/connection': typeof ConnectionRouteWithChildren
   '/home': typeof HomeRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
   '/support': typeof SupportRouteWithChildren
   '/community/$activity': typeof CommunityActivityRoute
   '/connection/$option': typeof ConnectionOptionRoute
@@ -130,6 +148,8 @@ export interface FileRouteTypes {
     | '/community'
     | '/connection'
     | '/home'
+    | '/login'
+    | '/signup'
     | '/support'
     | '/community/$activity'
     | '/connection/$option'
@@ -142,6 +162,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/home'
+    | '/login'
+    | '/signup'
     | '/community/$activity'
     | '/connection/$option'
     | '/need/$category'
@@ -155,6 +177,8 @@ export interface FileRouteTypes {
     | '/community'
     | '/connection'
     | '/home'
+    | '/login'
+    | '/signup'
     | '/support'
     | '/community/$activity'
     | '/connection/$option'
@@ -170,6 +194,8 @@ export interface RootRouteChildren {
   CommunityRoute: typeof CommunityRouteWithChildren
   ConnectionRoute: typeof ConnectionRouteWithChildren
   HomeRoute: typeof HomeRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
   SupportRoute: typeof SupportRouteWithChildren
   NeedCategoryRoute: typeof NeedCategoryRoute
 }
@@ -202,6 +228,20 @@ declare module '@tanstack/react-router' {
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/support': {
@@ -309,6 +349,8 @@ const rootRouteChildren: RootRouteChildren = {
   CommunityRoute: CommunityRouteWithChildren,
   ConnectionRoute: ConnectionRouteWithChildren,
   HomeRoute: HomeRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
   SupportRoute: SupportRouteWithChildren,
   NeedCategoryRoute: NeedCategoryRoute,
 }

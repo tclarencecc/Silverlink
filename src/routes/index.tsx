@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 import { LANGUAGES, useLanguage, type LanguageCode } from "@/lib/language";
+import { getCurrentUser, logOut } from "@/lib/local-auth";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/")({
@@ -28,12 +29,43 @@ export const Route = createFileRoute("/")({
 });
 
 const ADVANCE_DELAY = 700;
+const GREETING_INTERVAL = 2200;
+
+const WELCOME: Record<LanguageCode, string> = {
+  en: "Welcome",
+  zh: "欢迎",
+  ms: "Selamat datang",
+  ta: "வரவேற்கிறோம்",
+};
+const GREETING_ORDER: LanguageCode[] = ["en", "zh", "ms", "ta"];
 
 function LanguagePage() {
   const navigate = useNavigate();
   const { language, setLanguage } = useLanguage();
   const [chosen, setChosen] = useState<LanguageCode | null>(null);
+  const [userName, setUserName] = useState<string | null>(null);
+  const [greetIndex, setGreetIndex] = useState(0);
   const timer = useRef<number | null>(null);
+
+  useEffect(() => {
+    const user = getCurrentUser();
+    if (!user) {
+      navigate({ to: "/login", replace: true });
+      return;
+    }
+    setUserName(user.name);
+  }, [navigate]);
+
+  useEffect(() => {
+    if (chosen) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    const id = window.setInterval(
+      () => setGreetIndex((i) => (i + 1) % GREETING_ORDER.length),
+      GREETING_INTERVAL,
+    );
+    return () => window.clearInterval(id);
+  }, [chosen]);
 
   useEffect(
     () => () => {
@@ -43,6 +75,7 @@ function LanguagePage() {
   );
 
   const active = chosen ?? language;
+  const greetLang: LanguageCode = chosen ?? GREETING_ORDER[greetIndex]!;
 
   function choose(code: LanguageCode) {
     if (chosen) return;
@@ -53,15 +86,32 @@ function LanguagePage() {
     }, ADVANCE_DELAY);
   }
 
+  function handleLogOut() {
+    logOut();
+    navigate({ to: "/login" });
+  }
+
   const announcement = chosen
     ? `${LANGUAGES.find((item) => item.code === chosen)?.hint} selected`
     : "";
+
+  if (!userName) {
+    return <main className="min-h-screen bg-background" />;
+  }
 
   return (
     <main className="flex min-h-screen flex-col bg-background px-5 py-8 sm:py-14">
       <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center">
         <header className="mb-9 text-center">
-          <h1 className="font-display text-hero text-foreground">
+          <p
+            key={greetLang}
+            lang={greetLang}
+            className="animate-in fade-in duration-700 font-display text-hero text-primary"
+            aria-label={`Welcome, ${userName}`}
+          >
+            {WELCOME[greetLang]}, {userName}
+          </p>
+          <h1 className="mt-6 font-display text-hero text-foreground">
             Choose your language
           </h1>
           <p className="mt-4 text-body text-muted-foreground">
@@ -117,6 +167,16 @@ function LanguagePage() {
             );
           })}
         </div>
+      </div>
+
+      <div className="mx-auto mt-10 w-full max-w-md text-center">
+        <button
+          type="button"
+          onClick={handleLogOut}
+          className="inline-flex min-h-[60px] items-center px-4 text-body font-semibold text-muted-foreground underline underline-offset-4 hover:text-foreground"
+        >
+          Log out
+        </button>
       </div>
 
       <p aria-live="polite" className="sr-only">
