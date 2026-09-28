@@ -2,7 +2,7 @@ import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft, CalendarDays, ExternalLink, MapPin, MessageCircleQuestion } from "lucide-react";
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type KeyboardEvent } from "react";
 
 import { Button } from "@/components/ui/button";
 import { getSportFacilities } from "@/lib/sportsg.functions";
@@ -201,8 +201,15 @@ function SportsQuestionForm({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      void handleSubmit();
+    }
+  }
+
+  async function handleSubmit(event?: FormEvent<HTMLFormElement>) {
+    event?.preventDefault();
     const trimmedQuestion = question.trim();
     if (!trimmedQuestion || !language || isSubmitting) return;
 
@@ -242,6 +249,7 @@ function SportsQuestionForm({
           maxLength={500}
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
+          onKeyDown={handleKeyDown}
           placeholder={
             topic === "music"
               ? strings.musicQuestionPlaceholder
