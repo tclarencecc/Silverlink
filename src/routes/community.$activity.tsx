@@ -196,7 +196,6 @@ function SportsQuestionForm({
 }) {
   const strings = getStrings(language);
   const askQuestion = useServerFn(askSportsQuestion);
-  const formRef = useRef<HTMLFormElement>(null);
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
