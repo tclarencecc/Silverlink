@@ -1,6 +1,10 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, BadgeDollarSign, ExternalLink, UserRoundCheck } from "lucide-react";
 
+import {
+  FINANCIAL_SUPPORT_SCHEMES,
+  getFinancialSupportText,
+} from "@/lib/financial-support";
 import { useLanguage } from "@/lib/language";
 import { getStrings } from "@/lib/strings";
 import { getSupportOption, getSupportOptionText } from "@/lib/support-options";
@@ -51,10 +55,14 @@ function SupportOptionPage() {
             <Icon className="h-12 w-12" strokeWidth={2} aria-hidden="true" />
           </span>
           <h1 className="mt-7 font-display text-heading text-foreground">{text.nearbyTitle}</h1>
-          <div className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-left shadow-soft">
-            <p className="text-body text-foreground">{text.detail}</p>
-            <p className="mt-4 text-caption text-muted-foreground">{strings.comingSoonNote}</p>
-          </div>
+          {option.id === "money" ? (
+            <MoneyMattersList language={language} />
+          ) : (
+            <div className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-left shadow-soft">
+              <p className="text-body text-foreground">{text.detail}</p>
+              <p className="mt-4 text-caption text-muted-foreground">{strings.comingSoonNote}</p>
+            </div>
+          )}
         </div>
 
         <Link to="/home" className="press tap-target mt-8 inline-flex w-full items-center justify-center rounded-3xl bg-primary px-6 text-body-lg font-bold text-primary-foreground shadow-soft hover:bg-primary/90">
@@ -62,5 +70,66 @@ function SupportOptionPage() {
         </Link>
       </div>
     </main>
+  );
+}
+
+function MoneyMattersList({
+  language,
+}: {
+  language: ReturnType<typeof useLanguage>["language"];
+}) {
+  const strings = getStrings(language);
+
+  return (
+    <section className="mt-9 text-left">
+      <p className="text-caption text-muted-foreground">
+        <span className="font-bold text-foreground">{FINANCIAL_SUPPORT_SCHEMES.length}</span>{" "}
+        {strings.financialSupportCount}
+      </p>
+      <ul className="mt-4 flex flex-col gap-4">
+        {FINANCIAL_SUPPORT_SCHEMES.map((scheme) => {
+          const details = getFinancialSupportText(scheme, language);
+
+          return (
+            <li key={scheme.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
+              <h2 className="font-display text-body-lg font-bold text-foreground">{scheme.name}</h2>
+              <p className="mt-1 text-caption text-muted-foreground">
+                {strings.providedBy} {scheme.provider}
+              </p>
+              <p className="mt-4 text-body text-foreground">{details.description}</p>
+
+              <div className="mt-4 space-y-4 border-t-2 border-border pt-4">
+                <div className="flex items-start gap-3">
+                  <UserRoundCheck className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                  <p className="text-caption text-muted-foreground">
+                    <span className="block font-bold text-foreground">{strings.eligibility}</span>
+                    {details.eligibility}
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <BadgeDollarSign className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                  <p className="text-caption text-muted-foreground">
+                    <span className="block font-bold text-foreground">{strings.benefit}</span>
+                    {details.benefit}
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href={scheme.url}
+                target="_blank"
+                rel="noreferrer"
+                className="press mt-5 inline-flex min-h-[3.75rem] w-full items-center justify-center gap-2 rounded-2xl bg-primary px-4 text-caption font-bold text-primary-foreground shadow-soft hover:bg-primary/90"
+              >
+                <ExternalLink className="h-5 w-5" aria-hidden="true" />
+                {strings.viewDetails}
+              </a>
+              <p className="mt-3 text-caption text-muted-foreground">{scheme.source}</p>
+            </li>
+          );
+        })}
+      </ul>
+      <p className="mt-6 text-caption text-muted-foreground">{strings.financialSupportSource}</p>
+    </section>
   );
 }
