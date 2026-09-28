@@ -2,7 +2,7 @@ import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { ArrowLeft, CalendarDays, ExternalLink, MapPin, MessageCircleQuestion } from "lucide-react";
-import { useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import { useState, type FormEvent, type KeyboardEvent } from "react";
 
 import { Button } from "@/components/ui/button";
 import { getSportFacilities } from "@/lib/sportsg.functions";
