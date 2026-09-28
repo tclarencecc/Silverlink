@@ -11,9 +11,12 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CommunityRouteImport } from './routes/community'
+import { Route as ConnectionRouteImport } from './routes/connection'
 import { Route as HomeRouteImport } from './routes/home'
 import { Route as CommunityIndexRouteImport } from './routes/community.index'
 import { Route as CommunityActivityRouteImport } from './routes/community.$activity'
+import { Route as ConnectionIndexRouteImport } from './routes/connection.index'
+import { Route as ConnectionOptionRouteImport } from './routes/connection.$option'
 import { Route as NeedCategoryRouteImport } from './routes/need.$category'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const CommunityRoute = CommunityRouteImport.update({
   id: '/community',
   path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectionRoute = ConnectionRouteImport.update({
+  id: '/connection',
+  path: '/connection',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
@@ -41,6 +49,16 @@ const CommunityActivityRoute = CommunityActivityRouteImport.update({
   path: '/$activity',
   getParentRoute: () => CommunityRoute,
 } as any)
+const ConnectionIndexRoute = ConnectionIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ConnectionRoute,
+} as any)
+const ConnectionOptionRoute = ConnectionOptionRouteImport.update({
+  id: '/$option',
+  path: '/$option',
+  getParentRoute: () => ConnectionRoute,
+} as any)
 const NeedCategoryRoute = NeedCategoryRouteImport.update({
   id: '/need/$category',
   path: '/need/$category',
@@ -50,51 +68,73 @@ const NeedCategoryRoute = NeedCategoryRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/community': typeof CommunityRouteWithChildren
+  '/connection': typeof ConnectionRouteWithChildren
   '/home': typeof HomeRoute
   '/community/$activity': typeof CommunityActivityRoute
+  '/connection/$option': typeof ConnectionOptionRoute
   '/need/$category': typeof NeedCategoryRoute
   '/community/': typeof CommunityIndexRoute
+  '/connection/': typeof ConnectionIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
   '/community/$activity': typeof CommunityActivityRoute
+  '/connection/$option': typeof ConnectionOptionRoute
   '/need/$category': typeof NeedCategoryRoute
   '/community': typeof CommunityIndexRoute
+  '/connection': typeof ConnectionIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/community': typeof CommunityRouteWithChildren
+  '/connection': typeof ConnectionRouteWithChildren
   '/home': typeof HomeRoute
   '/community/$activity': typeof CommunityActivityRoute
+  '/connection/$option': typeof ConnectionOptionRoute
   '/need/$category': typeof NeedCategoryRoute
   '/community/': typeof CommunityIndexRoute
+  '/connection/': typeof ConnectionIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/community'
+    | '/connection'
     | '/home'
     | '/community/$activity'
+    | '/connection/$option'
     | '/need/$category'
     | '/community/'
+    | '/connection/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/community/$activity' | '/need/$category' | '/community'
+  to:
+    | '/'
+    | '/home'
+    | '/community/$activity'
+    | '/connection/$option'
+    | '/need/$category'
+    | '/community'
+    | '/connection'
   id:
     | '__root__'
     | '/'
     | '/community'
+    | '/connection'
     | '/home'
     | '/community/$activity'
+    | '/connection/$option'
     | '/need/$category'
     | '/community/'
+    | '/connection/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CommunityRoute: typeof CommunityRouteWithChildren
+  ConnectionRoute: typeof ConnectionRouteWithChildren
   HomeRoute: typeof HomeRoute
   NeedCategoryRoute: typeof NeedCategoryRoute
 }
@@ -113,6 +153,13 @@ declare module '@tanstack/react-router' {
       path: '/community'
       fullPath: '/community'
       preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connection': {
+      id: '/connection'
+      path: '/connection'
+      fullPath: '/connection'
+      preLoaderRoute: typeof ConnectionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -135,6 +182,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/community/$activity'
       preLoaderRoute: typeof CommunityActivityRouteImport
       parentRoute: typeof CommunityRoute
+    }
+    '/connection/': {
+      id: '/connection/'
+      path: '/'
+      fullPath: '/connection/'
+      preLoaderRoute: typeof ConnectionIndexRouteImport
+      parentRoute: typeof ConnectionRoute
+    }
+    '/connection/$option': {
+      id: '/connection/$option'
+      path: '/$option'
+      fullPath: '/connection/$option'
+      preLoaderRoute: typeof ConnectionOptionRouteImport
+      parentRoute: typeof ConnectionRoute
     }
     '/need/$category': {
       id: '/need/$category'
@@ -160,9 +221,24 @@ const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
   CommunityRouteChildren,
 )
 
+interface ConnectionRouteChildren {
+  ConnectionOptionRoute: typeof ConnectionOptionRoute
+  ConnectionIndexRoute: typeof ConnectionIndexRoute
+}
+
+const ConnectionRouteChildren: ConnectionRouteChildren = {
+  ConnectionOptionRoute: ConnectionOptionRoute,
+  ConnectionIndexRoute: ConnectionIndexRoute,
+}
+
+const ConnectionRouteWithChildren = ConnectionRoute._addFileChildren(
+  ConnectionRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CommunityRoute: CommunityRouteWithChildren,
+  ConnectionRoute: ConnectionRouteWithChildren,
   HomeRoute: HomeRoute,
   NeedCategoryRoute: NeedCategoryRoute,
 }

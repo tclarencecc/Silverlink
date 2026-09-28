@@ -72,7 +72,9 @@ function NeedsPage() {
             const linkProps =
               service.id === "community"
                 ? ({ to: "/community" } as const)
-                : ({ to: "/need/$category", params: { category: service.id } } as const);
+                : service.id === "connection"
+                  ? ({ to: "/connection" } as const)
+                  : ({ to: "/need/$category", params: { category: service.id } } as const);
 
             return (
               <Link
