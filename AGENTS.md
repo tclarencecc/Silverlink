@@ -11,9 +11,10 @@
 
 ## Rules
 
-- Language choice is client-only state: a React context in `src/lib/language.tsx`
-  persisted to `localStorage`. No auth, no database, no server functions. Why:
-  the user asked for a backend-free app until they say otherwise.
+- Language choice remains client-only state in React context and `localStorage`;
+  no auth or database is used. SportSG data and Sports questions use server functions,
+  with all AI prompts and credentials kept server-side. Why: preserves the simple flow
+  while safely supporting the requested live directory and grounded answers.
 - Route map is `/` (language pick) → `/home` (needs pick), with Community,
   Connection, and Support branches using typed index and detail routes. Each leaf defines its own `head()` metadata and shared
   tokens come from `src/styles.css`, never ad-hoc colour classes in components.
