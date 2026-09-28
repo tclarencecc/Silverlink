@@ -1,13 +1,14 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowLeft, ExternalLink, MapPin } from "lucide-react";
+import { ArrowLeft, CalendarDays, ExternalLink, MapPin } from "lucide-react";
 
 import { getSportFacilities } from "@/lib/sportsg.functions";
 
 import { getActivity, getActivityText } from "@/lib/activities";
 import { HOBBIES, getHobbyName } from "@/lib/hobbies";
 import { useLanguage } from "@/lib/language";
+import { MUSIC_EVENTS } from "@/lib/music";
 import { getStrings } from "@/lib/strings";
 
 export const Route = createFileRoute("/community/$activity")({
@@ -81,6 +82,8 @@ function ActivityPlaceholder() {
             <SportsList language={language} />
           ) : activity.id === "hobbies" ? (
             <HobbiesList language={language} />
+          ) : activity.id === "music" ? (
+            <MusicList language={language} />
           ) : (
             <div className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-left shadow-soft">
               <p className="text-body text-foreground">{text.detail}</p>
