@@ -202,6 +202,7 @@ function SportsQuestionForm({
   const [hasError, setHasError] = useState(false);
 
   function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
+    console.log("CHATBOX KEYDOWN", event.key, event.shiftKey);
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
       void handleSubmit();
