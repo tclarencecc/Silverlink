@@ -1,24 +1,127 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { Check } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { LANGUAGES, useLanguage, type LanguageCode } from "@/lib/language";
+import { cn } from "@/lib/utils";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Choose your language" },
+      {
+        name: "description",
+        content:
+          "Pick the language you are most comfortable with: English, Chinese, Malay, or Tamil.",
+      },
+      { property: "og:title", content: "Choose your language" },
+      {
+        property: "og:description",
+        content:
+          "English, 中文, Melayu, or தமிழ் — tap the one you are most comfortable with.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: LanguagePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const ADVANCE_DELAY = 700;
+
+function LanguagePage() {
+  const navigate = useNavigate();
+  const { language, setLanguage } = useLanguage();
+  const [chosen, setChosen] = useState<LanguageCode | null>(null);
+  const timer = useRef<number | null>(null);
+
+  useEffect(
+    () => () => {
+      if (timer.current) window.clearTimeout(timer.current);
+    },
+    [],
+  );
+
+  const active = chosen ?? language;
+
+  function choose(code: LanguageCode) {
+    if (chosen) return;
+    setChosen(code);
+    setLanguage(code);
+    timer.current = window.setTimeout(() => {
+      navigate({ to: "/home" });
+    }, ADVANCE_DELAY);
+  }
+
+  const announcement = chosen
+    ? `${LANGUAGES.find((item) => item.code === chosen)?.hint} selected`
+    : "";
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="flex min-h-screen flex-col bg-background px-5 py-8 sm:py-14">
+      <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center">
+        <header className="mb-9 text-center">
+          <h1 className="font-display text-hero text-foreground">
+            Choose your language
+          </h1>
+          <p className="mt-4 text-body text-muted-foreground">
+            Tap the one you are most comfortable with. You can change it later.
+          </p>
+        </header>
+
+        <div className="flex flex-col gap-4" role="group" aria-label="Languages">
+          {LANGUAGES.map((item) => {
+            const selected = active === item.code;
+
+            return (
+              <button
+                key={item.code}
+                type="button"
+                onClick={() => choose(item.code)}
+                aria-pressed={selected}
+                className={cn(
+                  "tap-target press flex items-center justify-between gap-4 rounded-3xl border-2 px-6 text-left",
+                  selected
+                    ? "border-primary bg-primary text-primary-foreground shadow-lift"
+                    : "border-border bg-card text-foreground shadow-soft hover:border-primary/60 hover:bg-accent/50",
+                )}
+              >
+                <span className="min-w-0">
+                  <span className="block truncate font-display text-card-title">
+                    {item.label}
+                  </span>
+                  <span
+                    className={cn(
+                      "mt-1 block text-caption",
+                      selected
+                        ? "text-primary-foreground/85"
+                        : "text-muted-foreground",
+                    )}
+                  >
+                    {item.hint}
+                  </span>
+                </span>
+
+                <span
+                  className={cn(
+                    "grid h-11 w-11 shrink-0 place-items-center rounded-full border-2",
+                    selected
+                      ? "border-primary-foreground bg-primary-foreground text-primary"
+                      : "border-border",
+                  )}
+                  aria-hidden="true"
+                >
+                  {selected ? <Check className="h-6 w-6" strokeWidth={3} /> : null}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <p aria-live="polite" className="sr-only">
+        {announcement}
+      </p>
+    </main>
   );
 }
