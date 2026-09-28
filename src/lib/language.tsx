@@ -61,7 +61,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return {
       language,
       ready,
-      languageLabel: match?.hint ?? "",
+      languageLabel: match?.label ?? "",
       setLanguage,
     };
   }, [language, ready, setLanguage]);

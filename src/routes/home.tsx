@@ -3,7 +3,8 @@ import { ChevronRight } from "lucide-react";
 import { useEffect } from "react";
 
 import { useLanguage } from "@/lib/language";
-import { SERVICES } from "@/lib/services";
+import { getServiceText, SERVICES } from "@/lib/services";
+import { getStrings } from "@/lib/strings";
 
 export const Route = createFileRoute("/home")({
   head: () => ({
@@ -30,6 +31,7 @@ export const Route = createFileRoute("/home")({
 function NeedsPage() {
   const navigate = useNavigate();
   const { language, ready, languageLabel } = useLanguage();
+  const strings = getStrings(language);
 
   useEffect(() => {
     if (ready && !language) navigate({ to: "/", replace: true });
@@ -40,31 +42,32 @@ function NeedsPage() {
       <div className="mx-auto w-full max-w-md">
         <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
           <p className="min-w-0 truncate text-caption text-muted-foreground">
-            Language:{" "}
+            {strings.languageLabel}{" "}
             <span className="font-bold text-foreground">
-              {languageLabel || "Not set"}
+              {languageLabel || strings.languageNotSet}
             </span>
           </p>
           <Link
             to="/"
             className="press inline-flex min-h-[3.75rem] shrink-0 items-center justify-center rounded-full border-2 border-border bg-card px-6 text-caption font-bold text-foreground hover:border-primary/60"
           >
-            Change
+            {strings.change}
           </Link>
         </header>
 
         <div className="mt-9 sm:mt-12">
           <h1 className="font-display text-heading text-foreground">
-            How can we help you today?
+            {strings.homeHeading}
           </h1>
           <p className="mt-4 text-body text-muted-foreground">
-            Take your time. Choose one and we will take it from there.
+            {strings.homeSubheading}
           </p>
         </div>
 
         <div className="mt-8 flex flex-col gap-5">
           {SERVICES.map((service) => {
             const Icon = service.icon;
+            const text = getServiceText(service, language);
 
             return (
               <Link
@@ -79,10 +82,10 @@ function NeedsPage() {
 
                 <span className="min-w-0 flex-1">
                   <span className="block truncate font-display text-card-title text-foreground">
-                    {service.title}
+                    {text.title}
                   </span>
                   <span className="mt-1 block text-body text-muted-foreground">
-                    {service.blurb}
+                    {text.blurb}
                   </span>
                 </span>
 
