@@ -1,0 +1,60 @@
+[
+  {
+    "id": "workfare-income-supplement",
+    "name": "Enhanced Workfare Income Supplement (WIS)",
+    "provider": "Singapore Government",
+    "url": "https://go.gov.sg/tfb-s-wis",
+    "source": "Together, for Better",
+    "text": {
+      "en": {
+        "description": "Supplements the income and CPF savings of lower-wage Singaporean workers and encourages regular work.",
+        "eligibility": "Singapore citizens aged 30 or above who are employees, self-employed or platform workers; earn $500 to $3,000 gross monthly; live in a home with annual value up to $21,000 for work from 2024; and own no more than one property. Spouse conditions apply if married.",
+        "benefit": "Eligible employees, self-employed people and platform workers can receive up to $4,900 a year. Employees are assessed automatically; self-employed people must declare income and make required MediSave contributions."
+      },
+      "zh": {
+        "description": "为较低薪的新加坡工作人士补贴收入和公积金储蓄，并鼓励持续就业。",
+        "eligibility": "年满30岁的新加坡公民，受雇、自雇或从事平台工作；每月总收入为500元至3,000元；从2024年起，住所年值不超过21,000元；名下不超过一处房产。已婚者另有配偶条件。",
+        "benefit": "符合条件的雇员、自雇人士和平台工作者每年可获得最高4,900元。雇员无需申请；自雇人士须申报收入并缴付所需的保健储蓄。"
+      },
+      "ms": {
+        "description": "Menambah pendapatan dan simpanan CPF pekerja Singapura bergaji rendah serta menggalakkan pekerjaan tetap.",
+        "eligibility": "Warganegara Singapura berumur 30 tahun ke atas yang bekerja, bekerja sendiri atau pekerja platform; berpendapatan kasar bulanan $500 hingga $3,000; tinggal di rumah dengan Nilai Tahunan sehingga $21,000 bagi kerja mulai 2024; dan memiliki tidak lebih daripada satu hartanah. Syarat pasangan dikenakan jika berkahwin.",
+        "benefit": "Pekerja, individu bekerja sendiri dan pekerja platform yang layak boleh menerima sehingga $4,900 setahun. Pekerja dinilai secara automatik; individu bekerja sendiri perlu mengisytiharkan pendapatan dan membuat caruman MediSave yang diperlukan."
+      },
+      "ta": {
+        "description": "குறைந்த ஊதியம் பெறும் சிங்கப்பூர் தொழிலாளர்களின் வருமானம் மற்றும் CPF சேமிப்பை அதிகரித்து, தொடர்ந்து வேலை செய்வதை ஊக்குவிக்கிறது.",
+        "eligibility": "30 வயது அல்லது அதற்கு மேற்பட்ட சிங்கப்பூர் குடிமக்கள்; ஊழியர், சுயதொழில் செய்பவர் அல்லது தளப் பணியாளராக இருக்க வேண்டும்; மாத மொத்த வருமானம் $500 முதல் $3,000 வரை; 2024 முதல் செய்யும் வேலைக்கு வீட்டின் ஆண்டு மதிப்பு $21,000 வரை; ஒன்றுக்கு மேற்பட்ட சொத்து இருக்கக்கூடாது. திருமணமானவர்களுக்கு துணைவர் நிபந்தனைகளும் பொருந்தும்.",
+        "benefit": "தகுதியுள்ள ஊழியர்கள், சுயதொழில் செய்பவர்கள் மற்றும் தளப் பணியாளர்கள் ஆண்டுக்கு $4,900 வரை பெறலாம். ஊழியர்கள் தானாக மதிப்பிடப்படுவர்; சுயதொழில் செய்பவர்கள் வருமானத்தை அறிவித்து தேவையான MediSave பங்களிப்புகளைச் செய்ய வேண்டும்."
+      }
+    }
+  },
+  {
+    "id": "silver-support",
+    "name": "Silver Support Scheme",
+    "provider": "Singapore Government",
+    "url": "https://go.gov.sg/tfb-s-silver-support",
+    "source": "Together, for Better",
+    "text": {
+      "en": {
+        "description": "Provides quarterly cash support to seniors who earned less during their working years and now have less for retirement.",
+        "eligibility": "Singapore citizens aged 65 or above with total CPF contributions at age 55 of up to $140,000, household income per person not above $2,300, and who meet the listed housing and property conditions.",
+        "benefit": "Quarterly cash payments of $215 to $1,080, based on household income per person and HDB flat type. Eligible seniors are notified automatically in December of the preceding year."
+      },
+      "zh": {
+        "description": "为工作时期收入较低、退休储蓄较少的年长者提供每季度现金援助。",
+        "eligibility": "年满65岁的新加坡公民；55岁时公积金总缴交额不超过140,000元；家庭人均月入不超过2,300元；并符合所列的住房与房产条件。",
+        "benefit": "根据家庭人均收入和组屋房型，每季度可获215元至1,080元。符合条件的年长者会在前一年的12月自动收到通知。"
+      },
+      "ms": {
+        "description": "Memberi sokongan tunai setiap suku tahun kepada warga emas yang berpendapatan rendah semasa bekerja dan kini mempunyai kurang simpanan persaraan.",
+        "eligibility": "Warganegara Singapura berumur 65 tahun ke atas dengan jumlah caruman CPF pada usia 55 tahun sehingga $140,000, pendapatan isi rumah setiap orang tidak melebihi $2,300, serta memenuhi syarat perumahan dan hartanah yang disenaraikan.",
+        "benefit": "Bayaran tunai suku tahunan sebanyak $215 hingga $1,080, berdasarkan pendapatan isi rumah setiap orang dan jenis flat HDB. Warga emas yang layak akan dimaklumkan secara automatik pada Disember tahun sebelumnya."
+      },
+      "ta": {
+        "description": "வேலை செய்த காலத்தில் குறைவாக சம்பாதித்து, தற்போது ஓய்வுக்கால சேமிப்பு குறைவாக உள்ள மூத்தோருக்கு காலாண்டு பண உதவி வழங்குகிறது.",
+        "eligibility": "65 வயது அல்லது அதற்கு மேற்பட்ட சிங்கப்பூர் குடிமக்கள்; 55 வயதில் மொத்த CPF பங்களிப்பு $140,000 வரை; குடும்பத்தில் ஒருவருக்கான மாத வருமானம் $2,300-க்கு மிகாமல்; குறிப்பிடப்பட்ட வீட்டு மற்றும் சொத்து நிபந்தனைகளைப் பூர்த்தி செய்ய வேண்டும்.",
+        "benefit": "குடும்பத்தில் ஒருவருக்கான வருமானம் மற்றும் HDB வீட்டு வகையைப் பொறுத்து காலாண்டுக்கு $215 முதல் $1,080 வரை பணம் வழங்கப்படும். தகுதியுள்ள மூத்தோருக்கு முந்தைய ஆண்டின் டிசம்பரில் தானாக அறிவிக்கப்படும்."
+      }
+    }
+  }
+]

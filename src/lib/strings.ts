@@ -39,6 +39,9 @@ export type UiStrings = {
   location: string;
   schedule: string;
   findOutMore: string;
+  financialSupportCount: string;
+  financialSupportSource: string;
+  benefit: string;
 };
 
 export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
@@ -82,6 +85,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     location: "Where",
     schedule: "When",
     findOutMore: "Find out more",
+    financialSupportCount: "financial support schemes",
+    financialSupportSource: "Source: Together, for Better",
+    benefit: "What you may receive",
   },
   zh: {
     languageLabel: "语言：",
@@ -123,6 +129,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     location: "地点",
     schedule: "时间",
     findOutMore: "了解如何参加",
+    financialSupportCount: "项经济援助计划",
+    financialSupportSource: "资料来源：Together, for Better",
+    benefit: "您可能获得的援助",
   },
   ms: {
     languageLabel: "Bahasa:",
@@ -164,6 +173,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     location: "Lokasi",
     schedule: "Masa",
     findOutMore: "Ketahui lebih lanjut",
+    financialSupportCount: "skim sokongan kewangan",
+    financialSupportSource: "Sumber: Together, for Better",
+    benefit: "Bantuan yang mungkin diterima",
   },
   ta: {
     languageLabel: "மொழி:",
@@ -205,6 +217,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     location: "இடம்",
     schedule: "நேரம்",
     findOutMore: "மேலும் அறிக",
+    financialSupportCount: "நிதி உதவித் திட்டங்கள்",
+    financialSupportSource: "ஆதாரம்: Together, for Better",
+    benefit: "நீங்கள் பெறக்கூடிய உதவி",
   },
 };
 
