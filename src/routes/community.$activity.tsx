@@ -239,7 +239,7 @@ function SportsQuestionForm({
         </h2>
       </div>
 
-      <form className="mt-5" onSubmit={handleSubmit}>
+      <form ref={formRef} className="mt-5" onSubmit={handleSubmit}>
         <label htmlFor="sports-question" className="block text-body font-bold text-foreground">
           {strings.sportsQuestionLabel}
         </label>
@@ -250,6 +250,7 @@ function SportsQuestionForm({
           maxLength={500}
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
+          onKeyDown={handleKeyDown}
           placeholder={
             topic === "music"
               ? strings.musicQuestionPlaceholder
