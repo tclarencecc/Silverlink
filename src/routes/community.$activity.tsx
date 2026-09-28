@@ -170,3 +170,34 @@ function SportsList({ language }: { language: ReturnType<typeof useLanguage>["la
     </section>
   );
 }
+
+function HobbiesList({ language }: { language: ReturnType<typeof useLanguage>["language"] }) {
+  const strings = getStrings(language);
+
+  return (
+    <section className="mt-9 text-left">
+      <p className="text-caption text-muted-foreground">
+        <span className="font-bold text-foreground">{HOBBIES.length}</span> {strings.hobbiesCount}
+      </p>
+      <ul className="mt-4 flex flex-col gap-4">
+        {HOBBIES.map((hobby) => (
+          <li key={hobby.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
+            <h2 className="font-display text-body-lg font-bold text-foreground">
+              {getHobbyName(hobby, language)}
+            </h2>
+            <a
+              href={hobby.url}
+              target="_blank"
+              rel="noreferrer"
+              className="press mt-4 inline-flex min-h-[3.75rem] w-full items-center justify-center gap-2 rounded-2xl border-2 border-border bg-background px-4 text-caption font-bold text-foreground hover:border-primary/60"
+            >
+              <ExternalLink className="h-5 w-5" aria-hidden="true" />
+              {strings.viewCourses}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-6 text-caption text-muted-foreground">{strings.hobbiesSource}</p>
+    </section>
+  );
+}
