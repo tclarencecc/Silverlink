@@ -6,7 +6,7 @@ import { useState, type FormEvent } from "react";
 
 import { Button } from "@/components/ui/button";
 import { getSportFacilities } from "@/lib/sportsg.functions";
-import { askSportsQuestion } from "@/lib/sports-question.functions";
+import { askSportsQuestion, type QuestionItem, type QuestionTopic } from "@/lib/sports-question.functions";
 
 import { getActivity, getActivityText } from "@/lib/activities";
 import { HOBBIES, getHobbyName } from "@/lib/hobbies";
@@ -126,9 +126,12 @@ function SportsList({ language }: { language: ReturnType<typeof useLanguage>["la
   }
   if (isError || !data) {
     return (
-      <p className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-body text-foreground" role="alert">
-        {strings.sportsError}
-      </p>
+      <section className="mt-9 text-left">
+        <p className="rounded-3xl border-2 border-border bg-card p-6 text-body text-foreground" role="alert">
+          {strings.sportsError}
+        </p>
+        <SportsQuestionForm language={language} topic="sports" items={[]} />
+      </section>
     );
   }
 
@@ -173,17 +176,23 @@ function SportsList({ language }: { language: ReturnType<typeof useLanguage>["la
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.sportsSource}</p>
-      <SportsQuestionForm language={language} facilities={data} />
+      <SportsQuestionForm
+        language={language}
+        topic="sports"
+        items={data.map(({ venue, address, postalCode, detailsUrl }) => ({ venue, address, postalCode, detailsUrl }))}
+      />
     </section>
   );
 }
 
 function SportsQuestionForm({
   language,
-  facilities,
+  topic,
+  items,
 }: {
   language: ReturnType<typeof useLanguage>["language"];
-  facilities: NonNullable<ReturnType<typeof useQuery<Awaited<ReturnType<typeof getSportFacilities>>>>["data"]>;
+  topic: QuestionTopic;
+  items: QuestionItem[];
 }) {
   const strings = getStrings(language);
   const askQuestion = useServerFn(askSportsQuestion);
@@ -203,7 +212,7 @@ function SportsQuestionForm({
 
     try {
       const result = await askQuestion({
-        data: { question: trimmedQuestion, language, facilities },
+        data: { question: trimmedQuestion, language, topic, facilities: items },
       });
       setAnswer(result.answer);
     } catch {
@@ -233,7 +242,13 @@ function SportsQuestionForm({
           maxLength={500}
           value={question}
           onChange={(event) => setQuestion(event.target.value)}
-          placeholder={strings.sportsQuestionPlaceholder}
+          placeholder={
+            topic === "music"
+              ? strings.musicQuestionPlaceholder
+              : topic === "hobbies"
+                ? strings.hobbiesQuestionPlaceholder
+                : strings.sportsQuestionPlaceholder
+          }
           className="mt-3 min-h-32 w-full resize-y rounded-2xl border-2 border-input bg-card px-5 py-4 text-body text-foreground shadow-soft placeholder:text-muted-foreground"
         />
         <Button
@@ -291,6 +306,11 @@ function HobbiesList({ language }: { language: ReturnType<typeof useLanguage>["l
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.hobbiesSource}</p>
+      <SportsQuestionForm
+        language={language}
+        topic="hobbies"
+        items={HOBBIES.map((hobby) => ({ name: getHobbyName(hobby, language), englishName: getHobbyName(hobby, "en"), url: hobby.url }))}
+      />
     </section>
   );
 }
@@ -326,6 +346,11 @@ function MusicList({ language }: { language: ReturnType<typeof useLanguage>["lan
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.musicSource}</p>
+      <SportsQuestionForm
+        language={language}
+        topic="music"
+        items={MUSIC_EVENTS.map(({ title, date, venue, blurb, url }) => ({ title, date, venue, blurb, url }))}
+      />
     </section>
   );
 }
