@@ -1,0 +1,112 @@
+[
+  {
+    "id": "balloon-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/balloon-craft",
+    "name": { "en": "Balloon Craft", "zh": "气球工艺", "ms": "Kraf Belon", "ta": "பலூன் கைவினை" }
+  },
+  {
+    "id": "brick-art",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/brick-art",
+    "name": { "en": "Brick Art", "zh": "积木艺术", "ms": "Seni Bata", "ta": "பிரிக் கலை" }
+  },
+  {
+    "id": "clay-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/clay-craft",
+    "name": { "en": "Clay Craft", "zh": "黏土工艺", "ms": "Kraf Tanah Liat", "ta": "களிமண் கைவினை" }
+  },
+  {
+    "id": "fabric-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/fabric-craft",
+    "name": { "en": "Fabric Craft", "zh": "布艺", "ms": "Kraf Fabrik", "ta": "துணி கைவினை" }
+  },
+  {
+    "id": "fashion",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/fashion",
+    "name": { "en": "Fashion", "zh": "时装", "ms": "Fesyen", "ta": "ஃபேஷன்" }
+  },
+  {
+    "id": "floral-art-gift-wrapping",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/floral-art-gift-wrapping",
+    "name": { "en": "Floral Art & Gift Wrapping", "zh": "花艺与礼品包装", "ms": "Seni Bunga & Pembalutan Hadiah", "ta": "மலர் கலை & பரிசு பொதிதல்" }
+  },
+  {
+    "id": "gardening",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/gardening",
+    "name": { "en": "Gardening", "zh": "园艺", "ms": "Berkebun", "ta": "தோட்டக்கலை" }
+  },
+  {
+    "id": "glass-marble-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/glass-marble-craft",
+    "name": { "en": "Glass & Marble Craft", "zh": "玻璃与弹珠工艺", "ms": "Kraf Kaca & Guli", "ta": "கண்ணாடி & மார்பிள் கைவினை" }
+  },
+  {
+    "id": "interior-design-decor",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/interior-design-decor",
+    "name": { "en": "Interior Design & Decor", "zh": "室内设计与装饰", "ms": "Reka Bentuk Dalaman & Hiasan", "ta": "உள்அலங்கார வடிவமைப்பு" }
+  },
+  {
+    "id": "jewellery-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/jewellery-craft",
+    "name": { "en": "Jewellery Craft", "zh": "珠宝工艺", "ms": "Kraf Barang Kemas", "ta": "நகை கைவினை" }
+  },
+  {
+    "id": "leather-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/leather-craft",
+    "name": { "en": "Leather Craft", "zh": "皮革工艺", "ms": "Kraf Kulit", "ta": "தோல் கைவினை" }
+  },
+  {
+    "id": "magic-art",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/magic-art",
+    "name": { "en": "Magic Art", "zh": "魔术艺术", "ms": "Seni Silap Mata", "ta": "மாயாஜாலக் கலை" }
+  },
+  {
+    "id": "paper-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/paper-craft",
+    "name": { "en": "Paper Craft", "zh": "纸艺", "ms": "Kraf Kertas", "ta": "காகித கைவினை" }
+  },
+  {
+    "id": "pets",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/pets",
+    "name": { "en": "Pets", "zh": "宠物", "ms": "Haiwan Peliharaan", "ta": "செல்லப்பிராணிகள்" }
+  },
+  {
+    "id": "philately",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/philately",
+    "name": { "en": "Philately (Stamp Collecting)", "zh": "集邮", "ms": "Filateli (Mengumpul Setem)", "ta": "அஞ்சல் தலை சேகரிப்பு" }
+  },
+  {
+    "id": "photography-videography",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/photography-videography",
+    "name": { "en": "Photography & Videography", "zh": "摄影与录像", "ms": "Fotografi & Videografi", "ta": "புகைப்படம் & காணொளி" }
+  },
+  {
+    "id": "recycled-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/recycled-craft",
+    "name": { "en": "Recycled Craft", "zh": "再生工艺", "ms": "Kraf Kitar Semula", "ta": "மறுசுழற்சி கைவினை" }
+  },
+  {
+    "id": "rubber-plastic-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/rubber-plastic-craft",
+    "name": { "en": "Rubber & Plastic Craft", "zh": "橡胶与塑料工艺", "ms": "Kraf Getah & Plastik", "ta": "ரப்பர் & பிளாஸ்டிக் கைவினை" }
+  },
+  {
+    "id": "soap-candle-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/soap-candle-craft",
+    "name": { "en": "Soap & Candle Craft", "zh": "肥皂与蜡烛工艺", "ms": "Kraf Sabun & Lilin", "ta": "சோப்பு & மெழுகுவர்த்தி கைவினை" }
+  },
+  {
+    "id": "tile-stone-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/tile-stone-craft",
+    "name": { "en": "Tile & Stone Craft", "zh": "瓷砖与石材工艺", "ms": "Kraf Jubin & Batu", "ta": "ஓடு & கல் கைவினை" }
+  },
+  {
+    "id": "toy-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/toy-craft",
+    "name": { "en": "Toy Craft", "zh": "玩具工艺", "ms": "Kraf Mainan", "ta": "பொம்மை கைவினை" }
+  },
+  {
+    "id": "wood-craft",
+    "url": "https://www.onepa.gov.sg/courses/lifestyle-leisure/handicrafts-hobbies/wood-craft",
+    "name": { "en": "Wood Craft", "zh": "木工工艺", "ms": "Kraf Kayu", "ta": "மரக் கைவினை" }
+  }
+]

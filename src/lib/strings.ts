@@ -18,6 +18,9 @@ export type UiStrings = {
   moreInfo: string;
   openMap: string;
   sportsSource: string;
+  hobbiesCount: string;
+  hobbiesSource: string;
+  viewCourses: string;
 };
 
 export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
@@ -40,6 +43,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     moreInfo: "More info",
     openMap: "Map",
     sportsSource: "Source: Sport Singapore, data.gov.sg",
+    hobbiesCount: "hobby courses from OnePA",
+    hobbiesSource: "Source: People's Association, onepa.gov.sg",
+    viewCourses: "View courses",
   },
   zh: {
     languageLabel: "语言：",
@@ -60,6 +66,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     moreInfo: "了解更多",
     openMap: "地图",
     sportsSource: "资料来源：新加坡体育理事会，data.gov.sg",
+    hobbiesCount: "个人民协会兴趣课程",
+    hobbiesSource: "资料来源：人民协会，onepa.gov.sg",
+    viewCourses: "查看课程",
   },
   ms: {
     languageLabel: "Bahasa:",
@@ -80,6 +89,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     moreInfo: "Maklumat lanjut",
     openMap: "Peta",
     sportsSource: "Sumber: Sport Singapore, data.gov.sg",
+    hobbiesCount: "kursus hobi daripada OnePA",
+    hobbiesSource: "Sumber: People's Association, onepa.gov.sg",
+    viewCourses: "Lihat kursus",
   },
   ta: {
     languageLabel: "மொழி:",
@@ -100,6 +112,9 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     moreInfo: "மேலும் தகவல்",
     openMap: "வரைபடம்",
     sportsSource: "ஆதாரம்: Sport Singapore, data.gov.sg",
+    hobbiesCount: "OnePA பொழுதுபோக்கு வகுப்புகள்",
+    hobbiesSource: "ஆதாரம்: People's Association, onepa.gov.sg",
+    viewCourses: "வகுப்புகளைக் காண்க",
   },
 };
 
