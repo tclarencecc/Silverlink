@@ -39,9 +39,12 @@ export const Route = createFileRoute("/need/$category")({
 
 function ServicePlaceholder() {
   const { category } = Route.useParams();
+  const { language } = useLanguage();
   const service = getService(category);
   if (!service) throw notFound();
 
+  const strings = getStrings(language);
+  const text = getServiceText(service, language);
   const Icon = service.icon;
 
   return (

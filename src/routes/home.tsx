@@ -82,10 +82,10 @@ function NeedsPage() {
 
                 <span className="min-w-0 flex-1">
                   <span className="block truncate font-display text-card-title text-foreground">
-                    {service.title}
+                    {text.title}
                   </span>
                   <span className="mt-1 block text-body text-muted-foreground">
-                    {service.blurb}
+                    {text.blurb}
                   </span>
                 </span>
 
