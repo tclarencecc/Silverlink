@@ -35,7 +35,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
     <main className="flex min-h-screen flex-col bg-background px-5 py-8 sm:py-14">
       <div className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center">
         <h1 className="mb-9 text-center font-display text-hero text-foreground">
-          {isSignup ? "Create your account" : "Log in"}
+          {isSignup ? "Create your account" : "Login to Silverlink"}
         </h1>
 
         <form onSubmit={onSubmit} className="flex flex-col gap-5">
