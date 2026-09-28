@@ -19,6 +19,6 @@
   tokens come from `src/styles.css`, never ad-hoc colour classes in components.
   Why: keeps deep links, social previews, and the senior-legibility type scale
   consistent as more screens land.
-- External directory snapshots for Hobbies, Music, and Connection helplines live
-  in typed local JSON catalogues; only the SportSG directory is fetched live.
+- External directory snapshots for Hobbies, Music, Connection helplines, and
+  senior group programmes live in typed local JSON catalogues; only the SportSG directory is fetched live.
   Why: keeps third-party listings available and consistent across translations.
