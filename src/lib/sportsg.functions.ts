@@ -84,5 +84,4 @@ async function loadFacilities(): Promise<SportFacility[]> {
       })
       .filter((f) => f.venue)
       .sort((a, b) => a.venue.localeCompare(b.venue));
-  },
-);
+}
