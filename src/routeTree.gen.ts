@@ -10,7 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CommunityRouteImport } from './routes/community'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as CommunityIndexRouteImport } from './routes/community.index'
+import { Route as CommunityActivityRouteImport } from './routes/community.$activity'
 import { Route as NeedCategoryRouteImport } from './routes/need.$category'
 
 const IndexRoute = IndexRouteImport.update({
@@ -18,10 +21,25 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
   getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityIndexRoute = CommunityIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CommunityRoute,
+} as any)
+const CommunityActivityRoute = CommunityActivityRouteImport.update({
+  id: '/$activity',
+  path: '/$activity',
+  getParentRoute: () => CommunityRoute,
 } as any)
 const NeedCategoryRoute = NeedCategoryRouteImport.update({
   id: '/need/$category',
@@ -31,30 +49,52 @@ const NeedCategoryRoute = NeedCategoryRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/community': typeof CommunityRouteWithChildren
   '/home': typeof HomeRoute
+  '/community/$activity': typeof CommunityActivityRoute
   '/need/$category': typeof NeedCategoryRoute
+  '/community/': typeof CommunityIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/home': typeof HomeRoute
+  '/community/$activity': typeof CommunityActivityRoute
   '/need/$category': typeof NeedCategoryRoute
+  '/community': typeof CommunityIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/community': typeof CommunityRouteWithChildren
   '/home': typeof HomeRoute
+  '/community/$activity': typeof CommunityActivityRoute
   '/need/$category': typeof NeedCategoryRoute
+  '/community/': typeof CommunityIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/home' | '/need/$category'
+  fullPaths:
+    | '/'
+    | '/community'
+    | '/home'
+    | '/community/$activity'
+    | '/need/$category'
+    | '/community/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/home' | '/need/$category'
-  id: '__root__' | '/' | '/home' | '/need/$category'
+  to: '/' | '/home' | '/community/$activity' | '/need/$category' | '/community'
+  id:
+    | '__root__'
+    | '/'
+    | '/community'
+    | '/home'
+    | '/community/$activity'
+    | '/need/$category'
+    | '/community/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CommunityRoute: typeof CommunityRouteWithChildren
   HomeRoute: typeof HomeRoute
   NeedCategoryRoute: typeof NeedCategoryRoute
 }
@@ -68,12 +108,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/home': {
       id: '/home'
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/community/': {
+      id: '/community/'
+      path: '/'
+      fullPath: '/community/'
+      preLoaderRoute: typeof CommunityIndexRouteImport
+      parentRoute: typeof CommunityRoute
+    }
+    '/community/$activity': {
+      id: '/community/$activity'
+      path: '/$activity'
+      fullPath: '/community/$activity'
+      preLoaderRoute: typeof CommunityActivityRouteImport
+      parentRoute: typeof CommunityRoute
     }
     '/need/$category': {
       id: '/need/$category'
@@ -85,8 +146,23 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface CommunityRouteChildren {
+  CommunityActivityRoute: typeof CommunityActivityRoute
+  CommunityIndexRoute: typeof CommunityIndexRoute
+}
+
+const CommunityRouteChildren: CommunityRouteChildren = {
+  CommunityActivityRoute: CommunityActivityRoute,
+  CommunityIndexRoute: CommunityIndexRoute,
+}
+
+const CommunityRouteWithChildren = CommunityRoute._addFileChildren(
+  CommunityRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CommunityRoute: CommunityRouteWithChildren,
   HomeRoute: HomeRoute,
   NeedCategoryRoute: NeedCategoryRoute,
 }
