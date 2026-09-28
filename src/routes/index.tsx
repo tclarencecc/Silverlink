@@ -65,7 +65,7 @@ function LanguagePage() {
             Choose your language
           </h1>
           <p className="mt-4 text-body text-muted-foreground">
-            Tap the one you are most comfortable with. You can change it later.
+            {"\n"}
           </p>
         </header>
 
