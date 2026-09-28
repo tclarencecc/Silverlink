@@ -20,6 +20,13 @@ export type UiStrings = {
   moreInfo: string;
   openMap: string;
   sportsSource: string;
+  sportsQuestionHeading: string;
+  sportsQuestionLabel: string;
+  sportsQuestionPlaceholder: string;
+  sportsQuestionSubmit: string;
+  sportsQuestionLoading: string;
+  sportsAnswerHeading: string;
+  sportsQuestionError: string;
   hobbiesCount: string;
   hobbiesSource: string;
   viewCourses: string;
@@ -73,6 +80,13 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     moreInfo: "More info",
     openMap: "Map",
     sportsSource: "Source: Sport Singapore, data.gov.sg",
+    sportsQuestionHeading: "Can I help with anything specific?",
+    sportsQuestionLabel: "Your question",
+    sportsQuestionPlaceholder: "For example, which centre is in Tampines?",
+    sportsQuestionSubmit: "Ask",
+    sportsQuestionLoading: "Finding an answer…",
+    sportsAnswerHeading: "Answer",
+    sportsQuestionError: "Sorry, your question could not be answered right now. Please try again later.",
     hobbiesCount: "hobby courses from OnePA",
     hobbiesSource: "Source: People's Association, onepa.gov.sg",
     viewCourses: "View courses",
@@ -124,6 +138,13 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     moreInfo: "了解更多",
     openMap: "地图",
     sportsSource: "资料来源：新加坡体育理事会，data.gov.sg",
+    sportsQuestionHeading: "我可以帮您查找具体信息吗？",
+    sportsQuestionLabel: "您的问题",
+    sportsQuestionPlaceholder: "例如：淡滨尼有哪些体育中心？",
+    sportsQuestionSubmit: "提问",
+    sportsQuestionLoading: "正在查找答案…",
+    sportsAnswerHeading: "答案",
+    sportsQuestionError: "抱歉，目前无法回答您的问题。请稍后再试。",
     hobbiesCount: "个人民协会兴趣课程",
     hobbiesSource: "资料来源：人民协会，onepa.gov.sg",
     viewCourses: "查看课程",
@@ -175,6 +196,13 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     moreInfo: "Maklumat lanjut",
     openMap: "Peta",
     sportsSource: "Sumber: Sport Singapore, data.gov.sg",
+    sportsQuestionHeading: "Boleh saya bantu dengan sesuatu yang khusus?",
+    sportsQuestionLabel: "Soalan anda",
+    sportsQuestionPlaceholder: "Contohnya, pusat mana yang terletak di Tampines?",
+    sportsQuestionSubmit: "Tanya",
+    sportsQuestionLoading: "Mencari jawapan…",
+    sportsAnswerHeading: "Jawapan",
+    sportsQuestionError: "Maaf, soalan anda tidak dapat dijawab sekarang. Sila cuba lagi nanti.",
     hobbiesCount: "kursus hobi daripada OnePA",
     hobbiesSource: "Sumber: People's Association, onepa.gov.sg",
     viewCourses: "Lihat kursus",
@@ -226,6 +254,13 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     moreInfo: "மேலும் தகவல்",
     openMap: "வரைபடம்",
     sportsSource: "ஆதாரம்: Sport Singapore, data.gov.sg",
+    sportsQuestionHeading: "குறிப்பாக ஏதாவது உதவி வேண்டுமா?",
+    sportsQuestionLabel: "உங்கள் கேள்வி",
+    sportsQuestionPlaceholder: "எடுத்துக்காட்டாக, தெம்பனிஸில் எந்த மையம் உள்ளது?",
+    sportsQuestionSubmit: "கேளுங்கள்",
+    sportsQuestionLoading: "பதிலைத் தேடுகிறோம்…",
+    sportsAnswerHeading: "பதில்",
+    sportsQuestionError: "மன்னிக்கவும், உங்கள் கேள்விக்கு இப்போது பதிலளிக்க முடியவில்லை. பிறகு மீண்டும் முயற்சிக்கவும்.",
     hobbiesCount: "OnePA பொழுதுபோக்கு வகுப்புகள்",
     hobbiesSource: "ஆதாரம்: People's Association, onepa.gov.sg",
     viewCourses: "வகுப்புகளைக் காண்க",
