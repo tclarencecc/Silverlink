@@ -53,7 +53,7 @@ export async function answerSportsQuestion(input: {
     maxRetries: 2,
     system: [
       `Answer the user's question using only the supplied ${label}.`,
-      "Answer in one or two short sentences.",
+      "Answer in one or two short sentences of plain text, with no markdown or bold.",
       `Answer in ${LANGUAGE_NAMES[input.language]}.`,
       `If the answer is not explicitly supported by the supplied data, reply with exactly: ${FALLBACKS[input.language]}`,
       "Do not infer venues, amenities, opening hours, prices, accessibility, travel distance, or other facts absent from the data.",
