@@ -26,15 +26,16 @@ import { getSupportOption, getSupportOptionText } from "@/lib/support-options";
 export const Route = createFileRoute("/support/$option")({
   head: ({ params }) => {
     const text = getSupportOption(params.option)?.text.en;
+    const hasListings = params.option === "money" || params.option === "health-safety";
     return {
       meta: [
-        { title: text ? `${text.nearbyTitle} — coming soon` : "Coming soon" },
-        { name: "description", content: text ? `${text.title}: ${text.blurb}. This list is being built.` : "This list is being built." },
-        { property: "og:title", content: text ? `${text.nearbyTitle} — coming soon` : "Coming soon" },
-        { property: "og:description", content: text ? `${text.title}: ${text.blurb}` : "This list is being built." },
+        { title: text ? text.nearbyTitle : "Support services" },
+        { name: "description", content: text ? `${text.title}: ${text.blurb}.` : "Find support services in Singapore." },
+        { property: "og:title", content: text ? text.nearbyTitle : "Support services" },
+        { property: "og:description", content: text ? `${text.title}: ${text.blurb}` : "Find support services in Singapore." },
         { property: "og:type", content: "website" },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "robots", content: "noindex" },
+        ...(hasListings ? [] : [{ name: "robots", content: "noindex" }]),
       ],
     };
   },
