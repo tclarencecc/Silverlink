@@ -1,7 +1,9 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 
-import { getService } from "@/lib/services";
+import { useLanguage } from "@/lib/language";
+import { getService, getServiceText } from "@/lib/services";
+import { getStrings } from "@/lib/strings";
 
 export const Route = createFileRoute("/need/$category")({
   head: ({ params }) => {

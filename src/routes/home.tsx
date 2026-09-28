@@ -3,7 +3,8 @@ import { ChevronRight } from "lucide-react";
 import { useEffect } from "react";
 
 import { useLanguage } from "@/lib/language";
-import { SERVICES } from "@/lib/services";
+import { getServiceText, SERVICES } from "@/lib/services";
+import { getStrings } from "@/lib/strings";
 
 export const Route = createFileRoute("/home")({
   head: () => ({
