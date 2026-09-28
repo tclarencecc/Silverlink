@@ -169,6 +169,16 @@ function LanguagePage() {
         </div>
       </div>
 
+      <div className="mx-auto mt-10 w-full max-w-md text-center">
+        <button
+          type="button"
+          onClick={handleLogOut}
+          className="inline-flex min-h-[60px] items-center px-4 text-body font-semibold text-muted-foreground underline underline-offset-4 hover:text-foreground"
+        >
+          Log out
+        </button>
+      </div>
+
       <p aria-live="polite" className="sr-only">
         {announcement}
       </p>
