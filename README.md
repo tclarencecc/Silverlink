@@ -1,4 +1,4 @@
-# Singapore Connect
+# Silverlink
 
 Build a mobile-first web app for seniors in Singapore to find community, connection, and support services nearby.
 
