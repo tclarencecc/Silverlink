@@ -1,0 +1,95 @@
+[
+  {
+    "id": "seniors-helpline",
+    "name": "The Seniors Helpline",
+    "provider": "SAGE Counselling Centre",
+    "phone": "18005555555",
+    "phoneDisplay": "1800 555 5555",
+    "email": "reception@sagecc.org.sg",
+    "url": "https://www.sagecc.org.sg/the-seniors-helpline-2/",
+    "text": {
+      "en": {
+        "description": "A toll-free national helpline offering a listening ear and guidance about services for older people.",
+        "eligibility": "For people aged 50 and above, their family members and caregivers.",
+        "hours": "Monday to Friday, 9:00 am to 5:00 pm. Closed on weekends and public holidays."
+      },
+      "zh": {
+        "description": "全国免费热线，为年长者提供倾听与支持，并解答有关乐龄服务的问题。",
+        "eligibility": "适合50岁及以上人士、家属和照护者。",
+        "hours": "星期一至五，上午9时至下午5时。周末及公共假期休息。"
+      },
+      "ms": {
+        "description": "Talian bantuan nasional percuma yang sedia mendengar dan memberi panduan tentang khidmat untuk warga emas.",
+        "eligibility": "Untuk mereka yang berumur 50 tahun ke atas, ahli keluarga dan penjaga mereka.",
+        "hours": "Isnin hingga Jumaat, 9:00 pagi hingga 5:00 petang. Tutup pada hujung minggu dan cuti umum."
+      },
+      "ta": {
+        "description": "மூத்தோரின் தேவைகளைக் கேட்டு, அவர்களுக்கான சேவைகள் குறித்து வழிகாட்டும் இலவச தேசிய உதவி எண்.",
+        "eligibility": "50 வயது மற்றும் அதற்கு மேற்பட்டவர்கள், அவர்களது குடும்பத்தினர் மற்றும் பராமரிப்பாளர்களுக்கு.",
+        "hours": "திங்கள் முதல் வெள்ளி வரை, காலை 9:00 முதல் மாலை 5:00 வரை. வார இறுதி மற்றும் பொது விடுமுறை நாட்களில் மூடப்பட்டிருக்கும்."
+      }
+    }
+  },
+  {
+    "id": "aces-helplife",
+    "name": "Aces HelpLife",
+    "provider": "Aces Care Limited",
+    "phone": "67976797",
+    "phoneDisplay": "6797 6797",
+    "email": "contact@acescare.sg",
+    "url": "https://sgsocialsupport.com/resource/K8XUMBmaBbu",
+    "text": {
+      "en": {
+        "description": "A listening service that connects seniors with volunteers for everyday help and staying connected online.",
+        "eligibility": "Contact Aces Care for details.",
+        "hours": "Monday to Friday, 9:00 am to 5:00 pm."
+      },
+      "zh": {
+        "description": "倾听长者的需要，并联系义工协助日常事务及使用网络保持联系。",
+        "eligibility": "详情请联系 Aces Care。",
+        "hours": "星期一至五，上午9时至下午5时。"
+      },
+      "ms": {
+        "description": "Khidmat mendengar yang menghubungkan warga emas dengan sukarelawan untuk bantuan harian dan kekal berhubung dalam talian.",
+        "eligibility": "Hubungi Aces Care untuk maklumat lanjut.",
+        "hours": "Isnin hingga Jumaat, 9:00 pagi hingga 5:00 petang."
+      },
+      "ta": {
+        "description": "மூத்தோரின் தேவைகளைக் கேட்டு, அன்றாட உதவிக்கும் இணையத்தில் தொடர்பில் இருப்பதற்கும் தொண்டர்களுடன் இணைக்கும் சேவை.",
+        "eligibility": "விவரங்களுக்கு Aces Care-ஐத் தொடர்புகொள்ளுங்கள்.",
+        "hours": "திங்கள் முதல் வெள்ளி வரை, காலை 9:00 முதல் மாலை 5:00 வரை."
+      }
+    }
+  },
+  {
+    "id": "careline",
+    "name": "CareLine",
+    "provider": "Changi General Hospital",
+    "phone": "63407054",
+    "phoneDisplay": "6340 7054",
+    "email": "careline@singhealth.com.sg",
+    "url": "https://sgsocialsupport.com/resource/ZYjLAhmZb4V",
+    "text": {
+      "en": {
+        "description": "A personal telecare service that helps enrolled seniors get assistance and coordinates care with community partners.",
+        "eligibility": "Singapore citizens and permanent residents aged 60 and above who live within SingHealth boundaries and can communicate by phone.",
+        "hours": "Enrolled members receive access to a 24-hour hotline. Call this number to ask about registration."
+      },
+      "zh": {
+        "description": "个人电话关怀服务，为已加入的年长者提供协助，并与社区伙伴协调照护。",
+        "eligibility": "适合居住在新加坡保健服务范围内、能通过电话沟通的60岁及以上新加坡公民和永久居民。",
+        "hours": "已加入的会员可使用24小时热线。请拨打此号码查询登记事宜。"
+      },
+      "ms": {
+        "description": "Khidmat telejagaan peribadi yang membantu warga emas berdaftar mendapatkan bantuan dan menyelaraskan penjagaan dengan rakan masyarakat.",
+        "eligibility": "Warganegara dan penduduk tetap Singapura berumur 60 tahun ke atas yang tinggal dalam kawasan SingHealth dan boleh berkomunikasi melalui telefon.",
+        "hours": "Ahli berdaftar mendapat akses kepada talian 24 jam. Hubungi nombor ini untuk bertanya tentang pendaftaran."
+      },
+      "ta": {
+        "description": "பதிவுசெய்த மூத்தோருக்கு உதவி வழங்கி, சமூக அமைப்புகளுடன் பராமரிப்பை ஒருங்கிணைக்கும் தனிப்பட்ட தொலைபேசி பராமரிப்புச் சேவை.",
+        "eligibility": "SingHealth சேவைப் பகுதியில் வசிக்கும், தொலைபேசியில் தொடர்புகொள்ளக்கூடிய 60 வயது மற்றும் அதற்கு மேற்பட்ட சிங்கப்பூர் குடிமக்கள் மற்றும் நிரந்தரவாசிகளுக்கு.",
+        "hours": "பதிவுசெய்த உறுப்பினர்களுக்கு 24 மணிநேர உதவி எண் கிடைக்கும். பதிவு குறித்து அறிய இந்த எண்ணை அழைக்கவும்."
+      }
+    }
+  }
+]

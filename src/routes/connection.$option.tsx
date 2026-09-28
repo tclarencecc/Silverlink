@@ -1,11 +1,12 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Clock3, ExternalLink, Mail, Phone, UserRoundCheck } from "lucide-react";
 
 import {
   getConnectionOption,
   getConnectionOptionText,
 } from "@/lib/connections";
 import { useLanguage } from "@/lib/language";
+import { HELPLINES, getHelplineText } from "@/lib/helplines";
 import { getStrings } from "@/lib/strings";
 
 export const Route = createFileRoute("/connection/$option")({
@@ -75,12 +76,16 @@ function ConnectionOptionPage() {
             {text.nearbyTitle}
           </h1>
 
-          <div className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-left shadow-soft">
-            <p className="text-body text-foreground">{text.detail}</p>
-            <p className="mt-4 text-caption text-muted-foreground">
-              {strings.comingSoonNote}
-            </p>
-          </div>
+          {option.id === "talk" ? (
+            <HelplinesList language={language} />
+          ) : (
+            <div className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-left shadow-soft">
+              <p className="text-body text-foreground">{text.detail}</p>
+              <p className="mt-4 text-caption text-muted-foreground">
+                {strings.comingSoonNote}
+              </p>
+            </div>
+          )}
         </div>
 
         <Link
@@ -91,5 +96,80 @@ function ConnectionOptionPage() {
         </Link>
       </div>
     </main>
+  );
+}
+
+function HelplinesList({ language }: { language: ReturnType<typeof useLanguage>["language"] }) {
+  const strings = getStrings(language);
+
+  return (
+    <section className="mt-9 text-left">
+      <p className="text-caption text-muted-foreground">
+        <span className="font-bold text-foreground">{HELPLINES.length}</span>{" "}
+        {strings.helplinesCount}
+      </p>
+      <ul className="mt-4 flex flex-col gap-4">
+        {HELPLINES.map((helpline) => {
+          const details = getHelplineText(helpline, language);
+
+          return (
+            <li key={helpline.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
+              <h2 className="font-display text-body-lg font-bold text-foreground">
+                {helpline.name}
+              </h2>
+              <p className="mt-1 text-caption text-muted-foreground">
+                {strings.providedBy} {helpline.provider}
+              </p>
+              <p className="mt-4 text-body text-foreground">{details.description}</p>
+
+              <div className="mt-4 space-y-3 border-t-2 border-border pt-4">
+                <div className="flex items-start gap-3">
+                  <UserRoundCheck className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                  <p className="text-caption text-muted-foreground">
+                    <span className="block font-bold text-foreground">{strings.eligibility}</span>
+                    {details.eligibility}
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock3 className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                  <p className="text-caption text-muted-foreground">
+                    <span className="block font-bold text-foreground">{strings.hours}</span>
+                    {details.hours}
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href={`tel:${helpline.phone}`}
+                className="press mt-5 inline-flex min-h-[3.75rem] w-full items-center justify-center gap-2 rounded-2xl bg-primary px-4 text-caption font-bold text-primary-foreground shadow-soft hover:bg-primary/90"
+                aria-label={`${strings.callNow}: ${helpline.phoneDisplay}`}
+              >
+                <Phone className="h-5 w-5" aria-hidden="true" />
+                {strings.callNow}: {helpline.phoneDisplay}
+              </a>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <a
+                  href={`mailto:${helpline.email}`}
+                  className="press inline-flex min-h-[3.75rem] items-center justify-center gap-2 rounded-2xl border-2 border-border bg-background px-3 text-caption font-bold text-foreground hover:border-primary/60"
+                >
+                  <Mail className="h-5 w-5" aria-hidden="true" />
+                  {strings.sendEmail}
+                </a>
+                <a
+                  href={helpline.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="press inline-flex min-h-[3.75rem] items-center justify-center gap-2 rounded-2xl border-2 border-border bg-background px-3 text-caption font-bold text-foreground hover:border-primary/60"
+                >
+                  <ExternalLink className="h-5 w-5" aria-hidden="true" />
+                  {strings.viewDetails}
+                </a>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+      <p className="mt-6 text-caption text-muted-foreground">{strings.helplinesSource}</p>
+    </section>
   );
 }
