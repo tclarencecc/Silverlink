@@ -323,7 +323,12 @@ function MusicList({ language }: { language: ReturnType<typeof useLanguage>["lan
       <p className="text-caption text-muted-foreground">
         <span className="font-bold text-foreground">{MUSIC_EVENTS.length}</span> {strings.musicCount}
       </p>
-      <ul className="mt-4 flex flex-col gap-4">
+      <SportsQuestionForm
+        language={language}
+        topic="music"
+        items={MUSIC_EVENTS.map(({ title, date, venue, blurb, url }) => ({ title, date, venue, blurb, url }))}
+      />
+      <ul className="mt-8 flex flex-col gap-4">
         {MUSIC_EVENTS.map((event) => (
           <li key={event.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
             <h2 className="font-display text-body-lg font-bold text-foreground">{event.title}</h2>
@@ -346,11 +351,6 @@ function MusicList({ language }: { language: ReturnType<typeof useLanguage>["lan
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.musicSource}</p>
-      <SportsQuestionForm
-        language={language}
-        topic="music"
-        items={MUSIC_EVENTS.map(({ title, date, venue, blurb, url }) => ({ title, date, venue, blurb, url }))}
-      />
     </section>
   );
 }
