@@ -1,0 +1,136 @@
+{
+  "hotlines": [
+    {
+      "id": "emergency-ambulance-fire",
+      "name": "Emergency Ambulance and Fire",
+      "provider": "Singapore Civil Defence Force",
+      "phone": "995",
+      "phoneDisplay": "995",
+      "url": "https://www.scdf.gov.sg/home/about-us/information-on-ems/scdf-emergency-medical-services",
+      "text": {
+        "en": { "description": "Call for a life-threatening medical emergency or fire.", "hours": "Available 24 hours every day." },
+        "zh": { "description": "遇到危及生命的医疗紧急事故或火灾时，请拨打此号码。", "hours": "每天24小时服务。" },
+        "ms": { "description": "Hubungi untuk kecemasan perubatan yang mengancam nyawa atau kebakaran.", "hours": "Tersedia 24 jam setiap hari." },
+        "ta": { "description": "உயிருக்கு ஆபத்தான மருத்துவ அவசரநிலை அல்லது தீ விபத்து ஏற்பட்டால் அழைக்கவும்.", "hours": "தினமும் 24 மணி நேரமும் கிடைக்கும்." }
+      }
+    },
+    {
+      "id": "non-emergency-ambulance",
+      "name": "Non-Emergency Ambulance",
+      "provider": "Singapore Civil Defence Force",
+      "phone": "1777",
+      "phoneDisplay": "1777",
+      "url": "https://www.scdf.gov.sg/home/about-us/information-on-ems/scdf-emergency-medical-services",
+      "text": {
+        "en": { "description": "Call when medical transport is needed but the situation is not life-threatening.", "hours": "Available 24 hours every day." },
+        "zh": { "description": "需要医疗运送但情况不危及生命时，请拨打此号码。", "hours": "每天24小时服务。" },
+        "ms": { "description": "Hubungi apabila pengangkutan perubatan diperlukan tetapi keadaan tidak mengancam nyawa.", "hours": "Tersedia 24 jam setiap hari." },
+        "ta": { "description": "மருத்துவப் போக்குவரத்து தேவைப்பட்டாலும் உயிருக்கு ஆபத்து இல்லாதபோது அழைக்கவும்.", "hours": "தினமும் 24 மணி நேரமும் கிடைக்கும்." }
+      }
+    },
+    {
+      "id": "police",
+      "name": "Police",
+      "provider": "Singapore Police Force",
+      "phone": "999",
+      "phoneDisplay": "999",
+      "url": "https://www.police.gov.sg/Contact-Us",
+      "text": {
+        "en": { "description": "Call for immediate police help, including suspected elder abuse, theft or a safety threat.", "hours": "Available 24 hours every day." },
+        "zh": { "description": "需要警方立即协助时拨打，包括怀疑虐待年长者、盗窃或安全威胁。", "hours": "每天24小时服务。" },
+        "ms": { "description": "Hubungi untuk bantuan polis segera, termasuk penderaan warga emas yang disyaki, kecurian atau ancaman keselamatan.", "hours": "Tersedia 24 jam setiap hari." },
+        "ta": { "description": "மூத்தோர் துன்புறுத்தல் சந்தேகம், திருட்டு அல்லது பாதுகாப்பு அச்சுறுத்தல் உட்பட உடனடி காவல்துறை உதவிக்கு அழைக்கவும்.", "hours": "தினமும் 24 மணி நேரமும் கிடைக்கும்." }
+      }
+    },
+    {
+      "id": "seniors-helpline",
+      "name": "The Seniors Helpline",
+      "provider": "SAGE Counselling Centre",
+      "phone": "18005555555",
+      "phoneDisplay": "1800 555 5555",
+      "url": "https://www.sagecc.org.sg/the-seniors-helpline/",
+      "text": {
+        "en": { "description": "A listening ear and counselling for people aged 50 and above who feel lonely, confused or emotionally distressed.", "hours": "Monday to Friday, 9:00 am to 5:00 pm. Closed on weekends and public holidays." },
+        "zh": { "description": "为感到孤独、困惑或情绪困扰的50岁及以上人士提供倾听和辅导。", "hours": "星期一至五，上午9时至下午5时。周末及公共假期休息。" },
+        "ms": { "description": "Khidmat mendengar dan kaunseling untuk mereka yang berumur 50 tahun ke atas yang kesunyian, keliru atau tertekan.", "hours": "Isnin hingga Jumaat, 9:00 pagi hingga 5:00 petang. Tutup pada hujung minggu dan cuti umum." },
+        "ta": { "description": "தனிமை, குழப்பம் அல்லது மன உளைச்சலை உணரும் 50 வயது மற்றும் அதற்கு மேற்பட்டவர்களுக்குக் கேட்கும் ஆதரவும் ஆலோசனையும் வழங்குகிறது.", "hours": "திங்கள் முதல் வெள்ளி வரை, காலை 9:00 முதல் மாலை 5:00 வரை. வார இறுதி மற்றும் பொது விடுமுறைகளில் மூடப்பட்டிருக்கும்." }
+      }
+    },
+    {
+      "id": "awwa-caregivers-helpline",
+      "name": "AWWA Caregivers Helpline",
+      "provider": "AWWA",
+      "phone": "18002992992",
+      "phoneDisplay": "1800 299 2992",
+      "url": "https://www.awwa.org.sg/contact-us/",
+      "text": {
+        "en": { "description": "Guidance for caregivers on ageing, disability and available social services.", "hours": "Call the service to confirm its current operating hours." },
+        "zh": { "description": "为照护者提供有关老龄、残障和社会服务的指导。", "hours": "请致电服务机构确认最新服务时间。" },
+        "ms": { "description": "Panduan untuk penjaga tentang penuaan, ketidakupayaan dan khidmat sosial yang tersedia.", "hours": "Hubungi khidmat ini untuk mengesahkan waktu operasi terkini." },
+        "ta": { "description": "முதுமை, மாற்றுத்திறன் மற்றும் கிடைக்கும் சமூகச் சேவைகள் குறித்து பராமரிப்பாளர்களுக்கு வழிகாட்டுதல்.", "hours": "தற்போதைய சேவை நேரத்தை உறுதிப்படுத்த அழைக்கவும்." }
+      }
+    }
+  ],
+  "resources": [
+    {
+      "id": "advance-care-planning",
+      "name": "Advance Care Planning",
+      "provider": "Ministry of Health and Agency for Integrated Care",
+      "url": "https://www.moh.gov.sg/ageing-well/advance-care-planning/",
+      "text": {
+        "en": { "description": "Plan and share your future health and personal care wishes with loved ones and your healthcare team.", "eligibility": "Anyone who wants to plan ahead for future care.", "access": "Learn about planning support and start through MyLegacy." },
+        "zh": { "description": "预先规划并与亲友和医疗团队分享您未来的健康和个人照护意愿。", "eligibility": "任何希望预先规划未来照护的人士。", "access": "了解规划援助，并可通过 MyLegacy 开始。" },
+        "ms": { "description": "Rancang dan kongsi pilihan kesihatan serta penjagaan peribadi masa hadapan dengan orang tersayang dan pasukan penjagaan kesihatan.", "eligibility": "Sesiapa yang mahu merancang penjagaan masa hadapan.", "access": "Ketahui tentang sokongan perancangan dan mulakan melalui MyLegacy." },
+        "ta": { "description": "எதிர்கால உடல்நலம் மற்றும் தனிப்பட்ட பராமரிப்பு விருப்பங்களைத் திட்டமிட்டு அன்புக்குரியவர்களுடனும் மருத்துவக் குழுவுடனும் பகிருங்கள்.", "eligibility": "எதிர்காலப் பராமரிப்பை முன்கூட்டியே திட்டமிட விரும்பும் அனைவருக்கும்.", "access": "திட்டமிடல் உதவியை அறிந்து MyLegacy மூலம் தொடங்கலாம்." }
+      }
+    },
+    {
+      "id": "ageing-in-the-community",
+      "name": "Ageing in the community",
+      "provider": "Ministry of Health",
+      "url": "https://www.moh.gov.sg/ageing-well/ageing-in-the-community/",
+      "text": {
+        "en": { "description": "Find Active Ageing Centres, wellness activities, senior outreach, learning and volunteering opportunities.", "eligibility": "Older adults in Singapore; some outreach is for Singaporeans aged 60 and above.", "access": "Walk in to a nearby Active Ageing Centre or follow the programme links." },
+        "zh": { "description": "寻找活跃乐龄中心、健康活动、年长者外展、学习和义工机会。", "eligibility": "新加坡年长者；部分外展服务面向60岁及以上新加坡公民。", "access": "可直接前往邻近的活跃乐龄中心，或查看相关活动链接。" },
+        "ms": { "description": "Cari Pusat Penuaan Aktif, aktiviti kesejahteraan, pendampingan warga emas, pembelajaran dan peluang sukarela.", "eligibility": "Warga emas di Singapura; sesetengah khidmat pendampingan adalah untuk warga Singapura berumur 60 tahun ke atas.", "access": "Kunjungi Pusat Penuaan Aktif berdekatan atau ikuti pautan program." },
+        "ta": { "description": "சுறுசுறுப்பான முதுமை மையங்கள், நலவாழ்வு நடவடிக்கைகள், மூத்தோர் அணுகல், கற்றல் மற்றும் தொண்டு வாய்ப்புகளைக் கண்டறியுங்கள்.", "eligibility": "சிங்கப்பூரிலுள்ள மூத்தோருக்கு; சில அணுகல் சேவைகள் 60 வயது மற்றும் அதற்கு மேற்பட்ட சிங்கப்பூரர்களுக்கானவை.", "access": "அருகிலுள்ள சுறுசுறுப்பான முதுமை மையத்திற்கு நேரில் செல்லுங்கள் அல்லது நிகழ்ச்சிகளின் இணைப்புகளைப் பாருங்கள்." }
+      }
+    },
+    {
+      "id": "care-services",
+      "name": "Care services",
+      "provider": "Ministry of Health and Agency for Integrated Care",
+      "url": "https://www.moh.gov.sg/ageing-well/care-services/",
+      "text": {
+        "en": { "description": "Explore senior day care, rehabilitation, home medical and personal care, transport and residential care.", "eligibility": "People who need supervision, help with daily activities, rehabilitation or care at home or in a care setting.", "access": "Ask a hospital or polyclinic doctor, visit an AIC Link, or use the listed service finder." },
+        "zh": { "description": "了解年长者日间照护、康复、居家医疗与个人照护、交通和住宿照护。", "eligibility": "需要看护、日常生活协助、康复或居家及机构照护的人士。", "access": "可咨询医院或综合诊疗所医生、前往 AIC Link，或使用网页上的服务搜索。" },
+        "ms": { "description": "Terokai jagaan harian warga emas, pemulihan, rawatan perubatan dan peribadi di rumah, pengangkutan serta jagaan kediaman.", "eligibility": "Mereka yang memerlukan pengawasan, bantuan kegiatan harian, pemulihan atau penjagaan di rumah atau pusat jagaan.", "access": "Tanya doktor hospital atau poliklinik, kunjungi AIC Link, atau gunakan pencari khidmat yang disenaraikan." },
+        "ta": { "description": "மூத்தோர் பகல்நேரப் பராமரிப்பு, மறுவாழ்வு, வீட்டு மருத்துவ மற்றும் தனிப்பட்ட பராமரிப்பு, போக்குவரத்து மற்றும் தங்குமிடப் பராமரிப்பை அறியுங்கள்.", "eligibility": "மேற்பார்வை, அன்றாட நடவடிக்கைகளில் உதவி, மறுவாழ்வு அல்லது வீடு அல்லது பராமரிப்பு நிலையத்தில் உதவி தேவைப்படுவோருக்கு.", "access": "மருத்துவமனை அல்லது பலதுறை மருந்தக மருத்துவரிடம் கேளுங்கள், AIC Link-ஐ அணுகுங்கள் அல்லது பட்டியலிடப்பட்ட சேவைத் தேடலைப் பயன்படுத்துங்கள்." }
+      }
+    },
+    {
+      "id": "caregiving",
+      "name": "Caregiving support",
+      "provider": "Ministry of Health and Agency for Integrated Care",
+      "url": "https://www.moh.gov.sg/ageing-well/caregiving/",
+      "text": {
+        "en": { "description": "Find emotional support, training, respite, financial help and workplace resources for caregivers.", "eligibility": "Family members, partners, relatives, friends or neighbours caring for someone with illness, frailty or disability.", "access": "Open the caregiver resource page to explore available help." },
+        "zh": { "description": "寻找照护者情绪援助、培训、暂托照护、经济援助和职场资源。", "eligibility": "照顾患病、体弱或残障人士的家属、伴侣、亲戚、朋友或邻居。", "access": "打开照护者资源页面，查看可用援助。" },
+        "ms": { "description": "Cari sokongan emosi, latihan, jagaan sementara, bantuan kewangan dan sumber tempat kerja untuk penjaga.", "eligibility": "Ahli keluarga, pasangan, saudara, rakan atau jiran yang menjaga seseorang yang sakit, uzur atau kurang upaya.", "access": "Buka halaman sumber penjaga untuk meneroka bantuan yang tersedia." },
+        "ta": { "description": "பராமரிப்பாளர்களுக்கான உணர்ச்சி ஆதரவு, பயிற்சி, ஓய்வுப் பராமரிப்பு, நிதி உதவி மற்றும் பணியிட வளங்களைக் கண்டறியுங்கள்.", "eligibility": "நோய், உடல் தளர்ச்சி அல்லது மாற்றுத்திறன் உள்ள ஒருவரைப் பராமரிக்கும் குடும்பத்தினர், துணைவர், உறவினர், நண்பர் அல்லது அண்டை வீட்டாருக்கு.", "access": "கிடைக்கும் உதவிகளை அறிய பராமரிப்பாளர் வளப் பக்கத்தைத் திறக்கவும்." }
+      }
+    },
+    {
+      "id": "palliative-care",
+      "name": "Palliative care",
+      "provider": "Ministry of Health and Agency for Integrated Care",
+      "url": "https://www.moh.gov.sg/ageing-well/palliative-care/",
+      "text": {
+        "en": { "description": "Learn about pain and symptom relief, emotional support, grief help and caregiver training for life-limiting illness.", "eligibility": "People with a life-limiting illness and their caregivers or loved ones.", "access": "A doctor assesses care needs before referral to home, day or inpatient hospice services." },
+        "zh": { "description": "了解危及生命疾病的疼痛和症状缓解、情绪援助、哀伤支持和照护者培训。", "eligibility": "患有危及生命疾病的人士及其照护者或亲友。", "access": "医生会先评估照护需要，再转介居家、日间或住院临终关怀服务。" },
+        "ms": { "description": "Ketahui tentang kelegaan sakit dan gejala, sokongan emosi, bantuan kesedihan dan latihan penjaga bagi penyakit yang mengehadkan hayat.", "eligibility": "Mereka yang menghidap penyakit yang mengehadkan hayat serta penjaga atau orang tersayang.", "access": "Doktor menilai keperluan sebelum merujuk kepada khidmat hospis di rumah, harian atau pesakit dalam." },
+        "ta": { "description": "வாழ்நாளைக் குறைக்கும் நோய்க்கான வலி மற்றும் அறிகுறி நிவாரணம், உணர்ச்சி ஆதரவு, துயர உதவி மற்றும் பராமரிப்பாளர் பயிற்சியை அறியுங்கள்.", "eligibility": "வாழ்நாளைக் குறைக்கும் நோய் உள்ளவர்கள் மற்றும் அவர்களது பராமரிப்பாளர்கள் அல்லது அன்புக்குரியவர்களுக்கு.", "access": "வீடு, பகல்நேரம் அல்லது உள்நோயாளர் நல்வாழ்வு பராமரிப்புக்கு பரிந்துரைக்கும் முன் மருத்துவர் தேவைகளை மதிப்பிடுவார்." }
+      }
+    }
+  ]
+}
