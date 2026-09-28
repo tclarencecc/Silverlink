@@ -20,5 +20,5 @@
   Why: keeps deep links, social previews, and the senior-legibility type scale
   consistent as more screens land.
 - External directory snapshots for Hobbies, Music, Connection helplines,
-  senior group programmes, and Money Matters schemes live in typed local JSON catalogues; only the SportSG directory is fetched live.
+  senior group programmes, Money Matters schemes, and Health and Safety resources live in typed local JSON catalogues; only the SportSG directory is fetched live.
   Why: keeps third-party listings available and consistent across translations.
