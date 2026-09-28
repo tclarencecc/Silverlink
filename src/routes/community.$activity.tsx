@@ -205,12 +205,12 @@ function SportsQuestionForm({
   function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
-      formRef.current?.requestSubmit();
+      void handleSubmit();
     }
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function handleSubmit(event?: FormEvent<HTMLFormElement>) {
+    event?.preventDefault();
     const trimmedQuestion = question.trim();
     if (!trimmedQuestion || !language || isSubmitting) return;
 
