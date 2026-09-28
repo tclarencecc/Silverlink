@@ -238,7 +238,7 @@ function SportsQuestionForm({
         </h2>
       </div>
 
-      <form ref={formRef} className="mt-5" onSubmit={handleSubmit}>
+      <form className="mt-5" onSubmit={handleSubmit}>
         <label htmlFor="sports-question" className="block text-body font-bold text-foreground">
           {strings.sportsQuestionLabel}
         </label>
