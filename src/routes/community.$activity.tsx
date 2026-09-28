@@ -1,9 +1,12 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { ArrowLeft, CalendarDays, ExternalLink, MapPin } from "lucide-react";
+import { ArrowLeft, CalendarDays, ExternalLink, MapPin, MessageCircleQuestion } from "lucide-react";
+import { useState, type FormEvent } from "react";
 
+import { Button } from "@/components/ui/button";
 import { getSportFacilities } from "@/lib/sportsg.functions";
+import { askSportsQuestion } from "@/lib/sports-question.functions";
 
 import { getActivity, getActivityText } from "@/lib/activities";
 import { HOBBIES, getHobbyName } from "@/lib/hobbies";
@@ -170,6 +173,93 @@ function SportsList({ language }: { language: ReturnType<typeof useLanguage>["la
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.sportsSource}</p>
+      <SportsQuestionForm language={language} facilities={data} />
+    </section>
+  );
+}
+
+function SportsQuestionForm({
+  language,
+  facilities,
+}: {
+  language: ReturnType<typeof useLanguage>["language"];
+  facilities: NonNullable<ReturnType<typeof useQuery<Awaited<ReturnType<typeof getSportFacilities>>>>["data"]>;
+}) {
+  const strings = getStrings(language);
+  const askQuestion = useServerFn(askSportsQuestion);
+  const [question, setQuestion] = useState("");
+  const [answer, setAnswer] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const trimmedQuestion = question.trim();
+    if (!trimmedQuestion || !language || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setHasError(false);
+    setAnswer("");
+
+    try {
+      const result = await askQuestion({
+        data: { question: trimmedQuestion, language, facilities },
+      });
+      setAnswer(result.answer);
+    } catch {
+      setHasError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  return (
+    <section className="mt-10 border-t-2 border-border pt-9" aria-labelledby="sports-question-heading">
+      <div className="flex items-start gap-3">
+        <MessageCircleQuestion className="mt-1 h-7 w-7 shrink-0 text-primary" aria-hidden="true" />
+        <h2 id="sports-question-heading" className="font-display text-card-title font-bold text-foreground">
+          {strings.sportsQuestionHeading}
+        </h2>
+      </div>
+
+      <form className="mt-5" onSubmit={handleSubmit}>
+        <label htmlFor="sports-question" className="block text-body font-bold text-foreground">
+          {strings.sportsQuestionLabel}
+        </label>
+        <textarea
+          id="sports-question"
+          name="question"
+          rows={3}
+          maxLength={500}
+          value={question}
+          onChange={(event) => setQuestion(event.target.value)}
+          placeholder={strings.sportsQuestionPlaceholder}
+          className="mt-3 min-h-32 w-full resize-y rounded-2xl border-2 border-input bg-card px-5 py-4 text-body text-foreground shadow-soft placeholder:text-muted-foreground"
+        />
+        <Button
+          type="submit"
+          disabled={!question.trim() || !language || isSubmitting}
+          className="press tap-target mt-4 w-full rounded-3xl px-6 text-body-lg font-bold shadow-soft"
+        >
+          {isSubmitting ? strings.sportsQuestionLoading : strings.sportsQuestionSubmit}
+        </Button>
+      </form>
+
+      <div aria-live="polite" aria-busy={isSubmitting}>
+        {answer ? (
+          <div className="mt-5 rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
+            <h3 className="font-display text-card-title font-bold text-foreground">
+              {strings.sportsAnswerHeading}
+            </h3>
+            <p className="mt-3 text-body text-foreground">{answer}</p>
+          </div>
+        ) : null}
+        {hasError ? (
+          <p className="mt-5 rounded-3xl border-2 border-destructive bg-card p-5 text-body text-foreground" role="alert">
+            {strings.sportsQuestionError}
+          </p>
+        ) : null}
+      </div>
     </section>
   );
 }
