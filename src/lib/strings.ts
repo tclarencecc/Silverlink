@@ -8,6 +8,7 @@ export type UiStrings = {
   homeSubheading: string;
   communityHeading: string;
   connectionHeading: string;
+  supportHeading: string;
   youChose: string;
   back: string;
   comingSoonNote: string;
@@ -49,6 +50,7 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     homeSubheading: "Take your time. Choose one and we will take it from there.",
     communityHeading: "What kind of activities?",
     connectionHeading: "What kind of connection?",
+    supportHeading: "What kind of support?",
     youChose: "You chose:",
     back: "Back",
     comingSoonNote:
@@ -89,6 +91,7 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     homeSubheading: "慢慢来。选择一项，我们会为您安排接下来的步骤。",
     communityHeading: "什么样的活动？",
     connectionHeading: "您想要哪种联系？",
+    supportHeading: "您需要哪种援助？",
     youChose: "您选择了：",
     back: "返回",
     comingSoonNote:
@@ -129,6 +132,7 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     homeSubheading: "Ambil masa anda. Pilih satu dan kami akan uruskan selepas itu.",
     communityHeading: "Jenis aktiviti apa?",
     connectionHeading: "Jenis hubungan apa?",
+    supportHeading: "Apakah jenis sokongan?",
     youChose: "Anda memilih:",
     back: "Kembali",
     comingSoonNote:
@@ -169,6 +173,7 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     homeSubheading: "அவசரமில்லை. ஒன்றைத் தேர்ந்தெடுங்கள், மீதியை நாங்கள் கவனித்துக்கொள்வோம்.",
     communityHeading: "எந்த வகையான நிகழ்வுகள்?",
     connectionHeading: "எந்த வகையான தொடர்பு?",
+    supportHeading: "எந்த வகையான உதவி?",
     youChose: "நீங்கள் தேர்ந்தது:",
     back: "பின்செல்",
     comingSoonNote:
