@@ -13,11 +13,14 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ConnectionRouteImport } from './routes/connection'
 import { Route as HomeRouteImport } from './routes/home'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as CommunityIndexRouteImport } from './routes/community.index'
 import { Route as CommunityActivityRouteImport } from './routes/community.$activity'
 import { Route as ConnectionIndexRouteImport } from './routes/connection.index'
 import { Route as ConnectionOptionRouteImport } from './routes/connection.$option'
 import { Route as NeedCategoryRouteImport } from './routes/need.$category'
+import { Route as SupportIndexRouteImport } from './routes/support.index'
+import { Route as SupportOptionRouteImport } from './routes/support.$option'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -37,6 +40,11 @@ const ConnectionRoute = ConnectionRouteImport.update({
 const HomeRoute = HomeRouteImport.update({
   id: '/home',
   path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommunityIndexRoute = CommunityIndexRouteImport.update({
@@ -64,17 +72,30 @@ const NeedCategoryRoute = NeedCategoryRouteImport.update({
   path: '/need/$category',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupportIndexRoute = SupportIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SupportRoute,
+} as any)
+const SupportOptionRoute = SupportOptionRouteImport.update({
+  id: '/$option',
+  path: '/$option',
+  getParentRoute: () => SupportRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/community': typeof CommunityRouteWithChildren
   '/connection': typeof ConnectionRouteWithChildren
   '/home': typeof HomeRoute
+  '/support': typeof SupportRouteWithChildren
   '/community/$activity': typeof CommunityActivityRoute
   '/connection/$option': typeof ConnectionOptionRoute
   '/need/$category': typeof NeedCategoryRoute
+  '/support/$option': typeof SupportOptionRoute
   '/community/': typeof CommunityIndexRoute
   '/connection/': typeof ConnectionIndexRoute
+  '/support/': typeof SupportIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -82,8 +103,10 @@ export interface FileRoutesByTo {
   '/community/$activity': typeof CommunityActivityRoute
   '/connection/$option': typeof ConnectionOptionRoute
   '/need/$category': typeof NeedCategoryRoute
+  '/support/$option': typeof SupportOptionRoute
   '/community': typeof CommunityIndexRoute
   '/connection': typeof ConnectionIndexRoute
+  '/support': typeof SupportIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -91,11 +114,14 @@ export interface FileRoutesById {
   '/community': typeof CommunityRouteWithChildren
   '/connection': typeof ConnectionRouteWithChildren
   '/home': typeof HomeRoute
+  '/support': typeof SupportRouteWithChildren
   '/community/$activity': typeof CommunityActivityRoute
   '/connection/$option': typeof ConnectionOptionRoute
   '/need/$category': typeof NeedCategoryRoute
+  '/support/$option': typeof SupportOptionRoute
   '/community/': typeof CommunityIndexRoute
   '/connection/': typeof ConnectionIndexRoute
+  '/support/': typeof SupportIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -104,11 +130,14 @@ export interface FileRouteTypes {
     | '/community'
     | '/connection'
     | '/home'
+    | '/support'
     | '/community/$activity'
     | '/connection/$option'
     | '/need/$category'
+    | '/support/$option'
     | '/community/'
     | '/connection/'
+    | '/support/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -116,19 +145,24 @@ export interface FileRouteTypes {
     | '/community/$activity'
     | '/connection/$option'
     | '/need/$category'
+    | '/support/$option'
     | '/community'
     | '/connection'
+    | '/support'
   id:
     | '__root__'
     | '/'
     | '/community'
     | '/connection'
     | '/home'
+    | '/support'
     | '/community/$activity'
     | '/connection/$option'
     | '/need/$category'
+    | '/support/$option'
     | '/community/'
     | '/connection/'
+    | '/support/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -136,6 +170,7 @@ export interface RootRouteChildren {
   CommunityRoute: typeof CommunityRouteWithChildren
   ConnectionRoute: typeof ConnectionRouteWithChildren
   HomeRoute: typeof HomeRoute
+  SupportRoute: typeof SupportRouteWithChildren
   NeedCategoryRoute: typeof NeedCategoryRoute
 }
 
@@ -167,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/home'
       fullPath: '/home'
       preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/community/': {
@@ -204,6 +246,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NeedCategoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support/': {
+      id: '/support/'
+      path: '/'
+      fullPath: '/support/'
+      preLoaderRoute: typeof SupportIndexRouteImport
+      parentRoute: typeof SupportRoute
+    }
+    '/support/$option': {
+      id: '/support/$option'
+      path: '/$option'
+      fullPath: '/support/$option'
+      preLoaderRoute: typeof SupportOptionRouteImport
+      parentRoute: typeof SupportRoute
+    }
   }
 }
 
@@ -235,11 +291,25 @@ const ConnectionRouteWithChildren = ConnectionRoute._addFileChildren(
   ConnectionRouteChildren,
 )
 
+interface SupportRouteChildren {
+  SupportOptionRoute: typeof SupportOptionRoute
+  SupportIndexRoute: typeof SupportIndexRoute
+}
+
+const SupportRouteChildren: SupportRouteChildren = {
+  SupportOptionRoute: SupportOptionRoute,
+  SupportIndexRoute: SupportIndexRoute,
+}
+
+const SupportRouteWithChildren =
+  SupportRoute._addFileChildren(SupportRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CommunityRoute: CommunityRouteWithChildren,
   ConnectionRoute: ConnectionRouteWithChildren,
   HomeRoute: HomeRoute,
+  SupportRoute: SupportRouteWithChildren,
   NeedCategoryRoute: NeedCategoryRoute,
 }
 export const routeTree = rootRouteImport
