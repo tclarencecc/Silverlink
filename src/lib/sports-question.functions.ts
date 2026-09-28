@@ -1,13 +1,18 @@
 import { createServerFn } from "@tanstack/react-start";
 
 import type { LanguageCode } from "@/lib/language";
-import type { SportFacility } from "@/lib/sportsg.functions";
+
+export type QuestionTopic = "sports" | "music" | "hobbies";
+export type QuestionItem = Record<string, string | null>;
 
 type SportsQuestionInput = {
   question: string;
   language: LanguageCode;
-  facilities: SportFacility[];
+  topic: QuestionTopic;
+  facilities: QuestionItem[];
 };
+
+const TOPICS = new Set<QuestionTopic>(["sports", "music", "hobbies"]);
 
 const LANGUAGES = new Set<LanguageCode>(["en", "zh", "ms", "ta"]);
 
@@ -18,6 +23,7 @@ function validateInput(value: SportsQuestionInput): SportsQuestionInput {
     !value.question.trim() ||
     value.question.length > 500 ||
     !LANGUAGES.has(value.language) ||
+    !TOPICS.has(value.topic) ||
     !Array.isArray(value.facilities) ||
     value.facilities.length > 200
   ) {
