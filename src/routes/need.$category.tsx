@@ -47,7 +47,8 @@ function ServicePlaceholder() {
       <div className="mx-auto flex w-full max-w-md flex-1 flex-col">
         <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
           <p className="min-w-0 truncate text-caption text-muted-foreground">
-            You chose
+            You chose:{" "}
+            <span className="font-bold text-foreground">{service.title}</span>
           </p>
           <Link
             to="/home"
