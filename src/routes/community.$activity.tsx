@@ -202,7 +202,6 @@ function SportsQuestionForm({
   const [hasError, setHasError] = useState(false);
 
   function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
-    console.log("CHATBOX KEYDOWN", event.key, event.shiftKey);
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
       void handleSubmit();
@@ -212,7 +211,6 @@ function SportsQuestionForm({
   async function handleSubmit(event?: FormEvent<HTMLFormElement>) {
     event?.preventDefault();
     const trimmedQuestion = question.trim();
-    console.log("CHATBOX SUBMIT", JSON.stringify(trimmedQuestion), language, isSubmitting);
     if (!trimmedQuestion || !language || isSubmitting) return;
 
     setIsSubmitting(true);
