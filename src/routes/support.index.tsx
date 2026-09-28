@@ -3,35 +3,30 @@ import { ChevronRight } from "lucide-react";
 import { useEffect } from "react";
 
 import { useLanguage } from "@/lib/language";
-import { getServiceText, SERVICES } from "@/lib/services";
+import { getService, getServiceText } from "@/lib/services";
+import { SUPPORT_OPTIONS, getSupportOptionText } from "@/lib/support-options";
 import { getStrings } from "@/lib/strings";
 
-export const Route = createFileRoute("/home")({
+export const Route = createFileRoute("/support/")({
   head: () => ({
     meta: [
-      { title: "How can we help you today?" },
-      {
-        name: "description",
-        content:
-          "Choose community, connection, or support and we will take it from there.",
-      },
-      { property: "og:title", content: "How can we help you today?" },
-      {
-        property: "og:description",
-        content:
-          "Meet people, find someone to talk to, or get help with daily needs.",
-      },
+      { title: "What kind of support?" },
+      { name: "description", content: "Find help with money matters, health and safety." },
+      { property: "og:title", content: "What kind of support?" },
+      { property: "og:description", content: "Choose help with money matters, health or safety." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "noindex" },
     ],
   }),
-  component: NeedsPage,
+  component: SupportPage,
 });
 
-function NeedsPage() {
+function SupportPage() {
   const navigate = useNavigate();
-  const { language, ready, languageLabel } = useLanguage();
+  const { language, ready } = useLanguage();
   const strings = getStrings(language);
+  const support = getService("support");
 
   useEffect(() => {
     if (ready && !language) navigate({ to: "/", replace: true });
@@ -42,64 +37,43 @@ function NeedsPage() {
       <div className="mx-auto w-full max-w-md">
         <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
           <p className="min-w-0 truncate text-caption text-muted-foreground">
-            {strings.languageLabel}{" "}
+            {strings.youChose}{" "}
             <span className="font-bold text-foreground">
-              {languageLabel || strings.languageNotSet}
+              {support ? getServiceText(support, language).title : ""}
             </span>
           </p>
           <Link
-            to="/"
+            to="/home"
             className="press inline-flex min-h-[3.75rem] shrink-0 items-center justify-center rounded-full border-2 border-border bg-card px-6 text-caption font-bold text-foreground hover:border-primary/60"
           >
-            {strings.change}
+            {strings.back}
           </Link>
         </header>
 
         <div className="mt-9 sm:mt-12">
-          <h1 className="font-display text-heading text-foreground">
-            {strings.homeHeading}
-          </h1>
-          <p className="mt-4 text-body text-muted-foreground">
-            {strings.homeSubheading}
-          </p>
+          <h1 className="font-display text-heading text-foreground">{strings.supportHeading}</h1>
         </div>
 
         <div className="mt-8 flex flex-col gap-5">
-          {SERVICES.map((service) => {
-            const Icon = service.icon;
-            const text = getServiceText(service, language);
-
-            const linkProps =
-              service.id === "community"
-                ? ({ to: "/community" } as const)
-                : service.id === "connection"
-                  ? ({ to: "/connection" } as const)
-                  : ({ to: "/support" } as const);
+          {SUPPORT_OPTIONS.map((option) => {
+            const Icon = option.icon;
+            const text = getSupportOptionText(option, language);
 
             return (
               <Link
-                key={service.id}
-                {...linkProps}
+                key={option.id}
+                to="/support/$option"
+                params={{ option: option.id }}
                 className="press group flex min-h-[7rem] items-center gap-5 rounded-3xl border-2 border-border bg-card p-6 shadow-soft hover:border-primary/60 hover:bg-accent/40 hover:shadow-lift"
               >
                 <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-secondary text-primary">
                   <Icon className="h-8 w-8" strokeWidth={2} aria-hidden="true" />
                 </span>
-
                 <span className="min-w-0 flex-1">
-                  <span className="block truncate font-display text-card-title text-foreground">
-                    {text.title}
-                  </span>
-                  <span className="mt-1 block text-body text-muted-foreground">
-                    {text.blurb}
-                  </span>
+                  <span className="block font-display text-card-title text-foreground">{text.title}</span>
+                  <span className="mt-1 block text-body text-muted-foreground">{text.blurb}</span>
                 </span>
-
-                <ChevronRight
-                  className="h-7 w-7 shrink-0 text-muted-foreground group-hover:text-primary"
-                  strokeWidth={2.5}
-                  aria-hidden="true"
-                />
+                <ChevronRight className="h-7 w-7 shrink-0 text-muted-foreground group-hover:text-primary" strokeWidth={2.5} aria-hidden="true" />
               </Link>
             );
           })}
