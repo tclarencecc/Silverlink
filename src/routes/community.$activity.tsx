@@ -127,10 +127,10 @@ function SportsList({ language }: { language: ReturnType<typeof useLanguage>["la
   if (isError || !data) {
     return (
       <section className="mt-9 text-left">
-        <p className="rounded-3xl border-2 border-border bg-card p-6 text-body text-foreground" role="alert">
+        <SportsQuestionForm language={language} topic="sports" items={[]} />
+        <p className="mt-8 rounded-3xl border-2 border-border bg-card p-6 text-body text-foreground" role="alert">
           {strings.sportsError}
         </p>
-        <SportsQuestionForm language={language} topic="sports" items={[]} />
       </section>
     );
   }
@@ -140,7 +140,12 @@ function SportsList({ language }: { language: ReturnType<typeof useLanguage>["la
       <p className="text-caption text-muted-foreground">
         <span className="font-bold text-foreground">{data.length}</span> {strings.sportsCount}
       </p>
-      <ul className="mt-4 flex flex-col gap-4">
+      <SportsQuestionForm
+        language={language}
+        topic="sports"
+        items={data.map(({ venue, address, postalCode, detailsUrl }) => ({ venue, address, postalCode, detailsUrl }))}
+      />
+      <ul className="mt-8 flex flex-col gap-4">
         {data.map((f) => (
           <li key={f.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
             <h2 className="font-display text-body-lg font-bold text-foreground">{f.venue}</h2>
@@ -176,11 +181,6 @@ function SportsList({ language }: { language: ReturnType<typeof useLanguage>["la
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.sportsSource}</p>
-      <SportsQuestionForm
-        language={language}
-        topic="sports"
-        items={data.map(({ venue, address, postalCode, detailsUrl }) => ({ venue, address, postalCode, detailsUrl }))}
-      />
     </section>
   );
 }
@@ -223,7 +223,7 @@ function SportsQuestionForm({
   }
 
   return (
-    <section className="mt-10 border-t-2 border-border pt-9" aria-labelledby="sports-question-heading">
+    <section className="mt-7 border-b-2 border-border pb-9" aria-labelledby="sports-question-heading">
       <div className="flex items-start gap-3">
         <MessageCircleQuestion className="mt-1 h-7 w-7 shrink-0 text-primary" aria-hidden="true" />
         <h2 id="sports-question-heading" className="font-display text-card-title font-bold text-foreground">
@@ -287,7 +287,12 @@ function HobbiesList({ language }: { language: ReturnType<typeof useLanguage>["l
       <p className="text-caption text-muted-foreground">
         <span className="font-bold text-foreground">{HOBBIES.length}</span> {strings.hobbiesCount}
       </p>
-      <ul className="mt-4 flex flex-col gap-4">
+      <SportsQuestionForm
+        language={language}
+        topic="hobbies"
+        items={HOBBIES.map((hobby) => ({ name: getHobbyName(hobby, language), englishName: getHobbyName(hobby, "en"), url: hobby.url }))}
+      />
+      <ul className="mt-8 flex flex-col gap-4">
         {HOBBIES.map((hobby) => (
           <li key={hobby.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
             <h2 className="font-display text-body-lg font-bold text-foreground">
@@ -306,11 +311,6 @@ function HobbiesList({ language }: { language: ReturnType<typeof useLanguage>["l
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.hobbiesSource}</p>
-      <SportsQuestionForm
-        language={language}
-        topic="hobbies"
-        items={HOBBIES.map((hobby) => ({ name: getHobbyName(hobby, language), englishName: getHobbyName(hobby, "en"), url: hobby.url }))}
-      />
     </section>
   );
 }
@@ -323,7 +323,12 @@ function MusicList({ language }: { language: ReturnType<typeof useLanguage>["lan
       <p className="text-caption text-muted-foreground">
         <span className="font-bold text-foreground">{MUSIC_EVENTS.length}</span> {strings.musicCount}
       </p>
-      <ul className="mt-4 flex flex-col gap-4">
+      <SportsQuestionForm
+        language={language}
+        topic="music"
+        items={MUSIC_EVENTS.map(({ title, date, venue, blurb, url }) => ({ title, date, venue, blurb, url }))}
+      />
+      <ul className="mt-8 flex flex-col gap-4">
         {MUSIC_EVENTS.map((event) => (
           <li key={event.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
             <h2 className="font-display text-body-lg font-bold text-foreground">{event.title}</h2>
@@ -346,11 +351,6 @@ function MusicList({ language }: { language: ReturnType<typeof useLanguage>["lan
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.musicSource}</p>
-      <SportsQuestionForm
-        language={language}
-        topic="music"
-        items={MUSIC_EVENTS.map(({ title, date, venue, blurb, url }) => ({ title, date, venue, blurb, url }))}
-      />
     </section>
   );
 }
