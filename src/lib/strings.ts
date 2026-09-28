@@ -25,6 +25,14 @@ export type UiStrings = {
   musicCount: string;
   musicSource: string;
   viewEvent: string;
+  helplinesCount: string;
+  helplinesSource: string;
+  providedBy: string;
+  eligibility: string;
+  hours: string;
+  callNow: string;
+  sendEmail: string;
+  viewDetails: string;
 };
 
 export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
@@ -54,6 +62,14 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     musicCount: "music events in Singapore",
     musicSource: "Source: Arts Republic, artsrepublic.sg",
     viewEvent: "View event",
+    helplinesCount: "services you can contact",
+    helplinesSource: "Sources: SAGE Counselling Centre and SG Social Support",
+    providedBy: "Provided by",
+    eligibility: "Who this is for",
+    hours: "When to call",
+    callNow: "Call now",
+    sendEmail: "Email",
+    viewDetails: "View details",
   },
   zh: {
     languageLabel: "语言：",
@@ -81,6 +97,14 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     musicCount: "场新加坡音乐活动",
     musicSource: "资料来源：Arts Republic，artsrepublic.sg",
     viewEvent: "查看活动",
+    helplinesCount: "项可联系的服务",
+    helplinesSource: "资料来源：SAGE 辅导中心及 SG Social Support",
+    providedBy: "服务机构",
+    eligibility: "适合对象",
+    hours: "服务时间",
+    callNow: "立即拨打",
+    sendEmail: "电邮",
+    viewDetails: "查看详情",
   },
   ms: {
     languageLabel: "Bahasa:",
@@ -108,6 +132,14 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     musicCount: "acara muzik di Singapura",
     musicSource: "Sumber: Arts Republic, artsrepublic.sg",
     viewEvent: "Lihat acara",
+    helplinesCount: "khidmat yang boleh anda hubungi",
+    helplinesSource: "Sumber: SAGE Counselling Centre dan SG Social Support",
+    providedBy: "Disediakan oleh",
+    eligibility: "Untuk siapa",
+    hours: "Waktu untuk menelefon",
+    callNow: "Telefon sekarang",
+    sendEmail: "E-mel",
+    viewDetails: "Lihat butiran",
   },
   ta: {
     languageLabel: "மொழி:",
@@ -135,6 +167,14 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     musicCount: "சிங்கப்பூரில் இசை நிகழ்வுகள்",
     musicSource: "ஆதாரம்: Arts Republic, artsrepublic.sg",
     viewEvent: "நிகழ்வைக் காண்க",
+    helplinesCount: "தொடர்புகொள்ளக்கூடிய சேவைகள்",
+    helplinesSource: "ஆதாரங்கள்: SAGE Counselling Centre மற்றும் SG Social Support",
+    providedBy: "வழங்குபவர்",
+    eligibility: "யாருக்கானது",
+    hours: "அழைக்கும் நேரம்",
+    callNow: "இப்போது அழைக்கவும்",
+    sendEmail: "மின்னஞ்சல்",
+    viewDetails: "விவரங்களைக் காண்க",
   },
 };
 
