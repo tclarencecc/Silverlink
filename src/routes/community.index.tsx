@@ -2,35 +2,37 @@ import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { ChevronRight } from "lucide-react";
 import { useEffect } from "react";
 
+import { getActivityText, ACTIVITIES } from "@/lib/activities";
 import { useLanguage } from "@/lib/language";
-import { getServiceText, SERVICES } from "@/lib/services";
+import { getService, getServiceText } from "@/lib/services";
 import { getStrings } from "@/lib/strings";
 
-export const Route = createFileRoute("/home")({
+export const Route = createFileRoute("/community/")({
   head: () => ({
     meta: [
-      { title: "How can we help you today?" },
+      { title: "What kind of activities?" },
       {
         name: "description",
         content:
-          "Choose community, connection, or support and we will take it from there.",
+          "Choose sports, music, or hobbies and we will show you what is happening nearby.",
       },
-      { property: "og:title", content: "How can we help you today?" },
+      { property: "og:title", content: "What kind of activities?" },
       {
         property: "og:description",
         content:
-          "Meet people, find someone to talk to, or get help with daily needs.",
+          "Exercise and outdoor activities, singing and performances, or crafts and games.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "noindex" },
     ],
   }),
-  component: NeedsPage,
+  component: CommunityPage,
 });
 
-function NeedsPage() {
+function CommunityPage() {
   const navigate = useNavigate();
-  const { language, ready, languageLabel } = useLanguage();
+  const { language, ready } = useLanguage();
   const strings = getStrings(language);
 
   useEffect(() => {
@@ -42,42 +44,35 @@ function NeedsPage() {
       <div className="mx-auto w-full max-w-md">
         <header className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 sm:flex sm:justify-between">
           <p className="min-w-0 truncate text-caption text-muted-foreground">
-            {strings.languageLabel}{" "}
+            {strings.youChose}{" "}
             <span className="font-bold text-foreground">
-              {languageLabel || strings.languageNotSet}
+              {getServiceText(getService("community")!, language).title}
             </span>
           </p>
           <Link
-            to="/"
-            className="press inline-flex min-h-[3.75rem] shrink-0 items-center justify-center rounded-full border-2 border-border bg-card px-6 text-caption font-bold text-foreground hover:border-primary/60"
+            to="/home"
+            className="press inline-flex min-h-[3.75rem] shrink-0 items-center justify-center gap-2 rounded-full border-2 border-border bg-card px-6 text-caption font-bold text-foreground hover:border-primary/60"
           >
-            {strings.change}
+            {strings.back}
           </Link>
         </header>
 
         <div className="mt-9 sm:mt-12">
           <h1 className="font-display text-heading text-foreground">
-            {strings.homeHeading}
+            {strings.communityHeading}
           </h1>
-          <p className="mt-4 text-body text-muted-foreground">
-            {strings.homeSubheading}
-          </p>
         </div>
 
         <div className="mt-8 flex flex-col gap-5">
-          {SERVICES.map((service) => {
-            const Icon = service.icon;
-            const text = getServiceText(service, language);
-
-            const linkProps =
-              service.id === "community"
-                ? ({ to: "/community" } as const)
-                : ({ to: "/need/$category", params: { category: service.id } } as const);
+          {ACTIVITIES.map((activity) => {
+            const Icon = activity.icon;
+            const text = getActivityText(activity, language);
 
             return (
               <Link
-                key={service.id}
-                {...linkProps}
+                key={activity.id}
+                to="/community/$activity"
+                params={{ activity: activity.id }}
                 className="press group flex min-h-[7rem] items-center gap-5 rounded-3xl border-2 border-border bg-card p-6 shadow-soft hover:border-primary/60 hover:bg-accent/40 hover:shadow-lift"
               >
                 <span className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-secondary text-primary">

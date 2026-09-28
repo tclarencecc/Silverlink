@@ -6,6 +6,7 @@ export type UiStrings = {
   change: string;
   homeHeading: string;
   homeSubheading: string;
+  communityHeading: string;
   youChose: string;
   back: string;
   comingSoonNote: string;
@@ -19,6 +20,7 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     change: "Change",
     homeHeading: "How can we help you today?",
     homeSubheading: "Take your time. Choose one and we will take it from there.",
+    communityHeading: "What kind of activities?",
     youChose: "You chose:",
     back: "Back",
     comingSoonNote:
@@ -31,6 +33,7 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     change: "更改",
     homeHeading: "我们今天能帮您什么？",
     homeSubheading: "慢慢来。选择一项，我们会为您安排接下来的步骤。",
+    communityHeading: "什么样的活动？",
     youChose: "您选择了：",
     back: "返回",
     comingSoonNote:
@@ -43,6 +46,7 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     change: "Tukar",
     homeHeading: "Apa yang boleh kami bantu hari ini?",
     homeSubheading: "Ambil masa anda. Pilih satu dan kami akan uruskan selepas itu.",
+    communityHeading: "Jenis aktiviti apa?",
     youChose: "Anda memilih:",
     back: "Kembali",
     comingSoonNote:
@@ -55,6 +59,7 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     change: "மாற்று",
     homeHeading: "இன்று நாங்கள் உங்களுக்கு எப்படி உதவலாம்?",
     homeSubheading: "அவசரமில்லை. ஒன்றைத் தேர்ந்தெடுங்கள், மீதியை நாங்கள் கவனித்துக்கொள்வோம்.",
+    communityHeading: "எந்த வகையான நிகழ்வுகள்?",
     youChose: "நீங்கள் தேர்ந்தது:",
     back: "பின்செல்",
     comingSoonNote:
