@@ -1,5 +1,9 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { ArrowLeft, ExternalLink, MapPin } from "lucide-react";
+
+import { getSportFacilities } from "@/lib/sportsg.functions";
 
 import { getActivity, getActivityText } from "@/lib/activities";
 import { useLanguage } from "@/lib/language";
@@ -72,12 +76,16 @@ function ActivityPlaceholder() {
             {text.nearbyTitle}
           </h1>
 
-          <div className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-left shadow-soft">
-            <p className="text-body text-foreground">{text.detail}</p>
-            <p className="mt-4 text-caption text-muted-foreground">
-              {strings.comingSoonNote}
-            </p>
-          </div>
+          {activity.id === "sports" ? (
+            <SportsList language={language} />
+          ) : (
+            <div className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-left shadow-soft">
+              <p className="text-body text-foreground">{text.detail}</p>
+              <p className="mt-4 text-caption text-muted-foreground">
+                {strings.comingSoonNote}
+              </p>
+            </div>
+          )}
         </div>
 
         <Link
@@ -88,5 +96,74 @@ function ActivityPlaceholder() {
         </Link>
       </div>
     </main>
+  );
+}
+
+function SportsList({ language }: { language: ReturnType<typeof useLanguage>["language"] }) {
+  const strings = getStrings(language);
+  const fetchFacilities = useServerFn(getSportFacilities);
+  const { data, isPending, isError } = useQuery({
+    queryKey: ["sportsg-facilities"],
+    queryFn: () => fetchFacilities(),
+    staleTime: 1000 * 60 * 60,
+  });
+
+  if (isPending) {
+    return (
+      <p className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-body text-foreground" role="status">
+        {strings.sportsLoading}
+      </p>
+    );
+  }
+  if (isError || !data) {
+    return (
+      <p className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-body text-foreground" role="alert">
+        {strings.sportsError}
+      </p>
+    );
+  }
+
+  return (
+    <section className="mt-9 text-left">
+      <p className="text-caption text-muted-foreground">
+        <span className="font-bold text-foreground">{data.length}</span> {strings.sportsCount}
+      </p>
+      <ul className="mt-4 flex flex-col gap-4">
+        {data.map((f) => (
+          <li key={f.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
+            <h2 className="font-display text-body-lg font-bold text-foreground">{f.venue}</h2>
+            <p className="mt-2 text-body text-muted-foreground">
+              {f.address}
+              {f.postalCode ? `, ${strings.singapore} ${f.postalCode}` : ""}
+            </p>
+            <div className="mt-4 grid grid-cols-2 gap-3">
+              {f.lat !== null && f.lng !== null ? (
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${f.lat},${f.lng}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="press inline-flex min-h-[3.75rem] items-center justify-center gap-2 rounded-2xl border-2 border-border bg-background px-4 text-caption font-bold text-foreground hover:border-primary/60"
+                >
+                  <MapPin className="h-5 w-5" aria-hidden="true" />
+                  {strings.openMap}
+                </a>
+              ) : null}
+              {f.detailsUrl ? (
+                <a
+                  href={f.detailsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="press inline-flex min-h-[3.75rem] items-center justify-center gap-2 rounded-2xl border-2 border-border bg-background px-4 text-caption font-bold text-foreground hover:border-primary/60"
+                >
+                  <ExternalLink className="h-5 w-5" aria-hidden="true" />
+                  {strings.moreInfo}
+                </a>
+              ) : null}
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-6 text-caption text-muted-foreground">{strings.sportsSource}</p>
+    </section>
   );
 }
