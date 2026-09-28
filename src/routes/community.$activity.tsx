@@ -223,7 +223,7 @@ function SportsQuestionForm({
   }
 
   return (
-    <section className="mt-10 border-t-2 border-border pt-9" aria-labelledby="sports-question-heading">
+    <section className="mt-7 border-b-2 border-border pb-9" aria-labelledby="sports-question-heading">
       <div className="flex items-start gap-3">
         <MessageCircleQuestion className="mt-1 h-7 w-7 shrink-0 text-primary" aria-hidden="true" />
         <h2 id="sports-question-heading" className="font-display text-card-title font-bold text-foreground">
@@ -287,7 +287,12 @@ function HobbiesList({ language }: { language: ReturnType<typeof useLanguage>["l
       <p className="text-caption text-muted-foreground">
         <span className="font-bold text-foreground">{HOBBIES.length}</span> {strings.hobbiesCount}
       </p>
-      <ul className="mt-4 flex flex-col gap-4">
+      <SportsQuestionForm
+        language={language}
+        topic="hobbies"
+        items={HOBBIES.map((hobby) => ({ name: getHobbyName(hobby, language), englishName: getHobbyName(hobby, "en"), url: hobby.url }))}
+      />
+      <ul className="mt-8 flex flex-col gap-4">
         {HOBBIES.map((hobby) => (
           <li key={hobby.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
             <h2 className="font-display text-body-lg font-bold text-foreground">
@@ -306,11 +311,6 @@ function HobbiesList({ language }: { language: ReturnType<typeof useLanguage>["l
         ))}
       </ul>
       <p className="mt-6 text-caption text-muted-foreground">{strings.hobbiesSource}</p>
-      <SportsQuestionForm
-        language={language}
-        topic="hobbies"
-        items={HOBBIES.map((hobby) => ({ name: getHobbyName(hobby, language), englishName: getHobbyName(hobby, "en"), url: hobby.url }))}
-      />
     </section>
   );
 }
