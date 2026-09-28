@@ -1,5 +1,5 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
-import { ArrowLeft, Clock3, ExternalLink, Mail, Phone, UserRoundCheck } from "lucide-react";
+import { ArrowLeft, Clock3, ExternalLink, Mail, MapPin, Phone, UserRoundCheck } from "lucide-react";
 
 import {
   getConnectionOption,
@@ -7,6 +7,7 @@ import {
 } from "@/lib/connections";
 import { useLanguage } from "@/lib/language";
 import { HELPLINES, getHelplineText } from "@/lib/helplines";
+import { GROUP_OPTIONS, getGroupText } from "@/lib/groups";
 import { getStrings } from "@/lib/strings";
 
 export const Route = createFileRoute("/connection/$option")({
@@ -78,6 +79,8 @@ function ConnectionOptionPage() {
 
           {option.id === "talk" ? (
             <HelplinesList language={language} />
+          ) : option.id === "group" ? (
+            <GroupsList language={language} />
           ) : (
             <div className="mt-9 rounded-3xl border-2 border-border bg-card p-6 text-left shadow-soft">
               <p className="text-body text-foreground">{text.detail}</p>
@@ -96,6 +99,70 @@ function ConnectionOptionPage() {
         </Link>
       </div>
     </main>
+  );
+}
+
+function GroupsList({ language }: { language: ReturnType<typeof useLanguage>["language"] }) {
+  const strings = getStrings(language);
+
+  return (
+    <section className="mt-9 text-left">
+      <p className="text-caption text-muted-foreground">
+        <span className="font-bold text-foreground">{GROUP_OPTIONS.length}</span>{" "}
+        {strings.groupsCount}
+      </p>
+      <ul className="mt-4 flex flex-col gap-4">
+        {GROUP_OPTIONS.map((group) => {
+          const details = getGroupText(group, language);
+
+          return (
+            <li key={group.id} className="rounded-3xl border-2 border-border bg-card p-5 shadow-soft">
+              <h2 className="font-display text-body-lg font-bold text-foreground">{group.name}</h2>
+              <p className="mt-1 text-caption text-muted-foreground">
+                {strings.providedBy} {group.provider}
+              </p>
+              <p className="mt-4 text-body text-foreground">{details.description}</p>
+
+              <div className="mt-4 space-y-3 border-t-2 border-border pt-4">
+                <div className="flex items-start gap-3">
+                  <UserRoundCheck className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                  <p className="text-caption text-muted-foreground">
+                    <span className="block font-bold text-foreground">{strings.eligibility}</span>
+                    {details.eligibility}
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                  <p className="text-caption text-muted-foreground">
+                    <span className="block font-bold text-foreground">{strings.location}</span>
+                    {details.location}
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Clock3 className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                  <p className="text-caption text-muted-foreground">
+                    <span className="block font-bold text-foreground">{strings.schedule}</span>
+                    {details.schedule}
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href={group.url}
+                target="_blank"
+                rel="noreferrer"
+                className="press mt-5 inline-flex min-h-[3.75rem] w-full items-center justify-center gap-2 rounded-2xl bg-primary px-4 text-caption font-bold text-primary-foreground shadow-soft hover:bg-primary/90"
+              >
+                <ExternalLink className="h-5 w-5" aria-hidden="true" />
+                {strings.findOutMore}
+              </a>
+              <p className="mt-3 text-caption text-muted-foreground">{group.source}</p>
+            </li>
+          );
+        })}
+      </ul>
+      <p className="mt-6 text-caption text-muted-foreground">{strings.groupsSource}</p>
+    </section>
   );
 }
 

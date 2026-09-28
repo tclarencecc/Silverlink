@@ -33,6 +33,11 @@ export type UiStrings = {
   callNow: string;
   sendEmail: string;
   viewDetails: string;
+  groupsCount: string;
+  groupsSource: string;
+  location: string;
+  schedule: string;
+  findOutMore: string;
 };
 
 export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
@@ -70,6 +75,11 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     callNow: "Call now",
     sendEmail: "Email",
     viewDetails: "View details",
+    groupsCount: "groups and programmes you can explore",
+    groupsSource: "Sources: Volunteer.gov.sg and Homage",
+    location: "Where",
+    schedule: "When",
+    findOutMore: "Find out more",
   },
   zh: {
     languageLabel: "语言：",
@@ -105,6 +115,11 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     callNow: "立即拨打",
     sendEmail: "电邮",
     viewDetails: "查看详情",
+    groupsCount: "个可探索的小组和活动",
+    groupsSource: "资料来源：Volunteer.gov.sg 及 Homage",
+    location: "地点",
+    schedule: "时间",
+    findOutMore: "了解如何参加",
   },
   ms: {
     languageLabel: "Bahasa:",
@@ -140,6 +155,11 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     callNow: "Telefon sekarang",
     sendEmail: "E-mel",
     viewDetails: "Lihat butiran",
+    groupsCount: "kumpulan dan program untuk diterokai",
+    groupsSource: "Sumber: Volunteer.gov.sg dan Homage",
+    location: "Lokasi",
+    schedule: "Masa",
+    findOutMore: "Ketahui lebih lanjut",
   },
   ta: {
     languageLabel: "மொழி:",
@@ -175,6 +195,11 @@ export const UI_STRINGS: Record<LanguageCode, UiStrings> = {
     callNow: "இப்போது அழைக்கவும்",
     sendEmail: "மின்னஞ்சல்",
     viewDetails: "விவரங்களைக் காண்க",
+    groupsCount: "ஆராயக்கூடிய குழுக்கள் மற்றும் நிகழ்ச்சிகள்",
+    groupsSource: "ஆதாரங்கள்: Volunteer.gov.sg மற்றும் Homage",
+    location: "இடம்",
+    schedule: "நேரம்",
+    findOutMore: "மேலும் அறிக",
   },
 };
 
